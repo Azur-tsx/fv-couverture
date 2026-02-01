@@ -145,11 +145,38 @@ header {
     color: var(--blue);
 }
 
+/* Section Hero */
+
 #hero {
-    background-image: url('/src/assets/hero-bg.jpeg');
     background-size: cover;
     background-position: center;
     height: 25rem;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+#hero.fade-out {
+    opacity: .8;
+}
+
+#hero.hero0 {
+    background-image: url('/src/assets/chantier-1.jpeg');
+}
+
+#hero.hero1 {
+    background-image: url('/src/assets/chantier-2.jpeg');
+}
+
+#hero.hero2 {
+    background-image: url('/src/assets/chantier-3.jpeg');
+}
+
+#hero.hero3 {
+    background-image: url('/src/assets/chantier-4.jpeg');
+}
+
+#hero.hero4 {
+    background-image: url('/src/assets/chantier-5.jpeg');
 }
 
 .hero-infos {
@@ -577,6 +604,7 @@ header {
 
 .floating-badge:hover {
     width: unset;
+    padding: .5rem 1.5rem;
 }
 
 .floating-badge:hover .floating-badge__content {
