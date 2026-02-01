@@ -406,3 +406,60 @@ header {
     color: rgba(49, 65, 88, 0.6);
     font-size: 0.85rem;
 }
+
+/* Section CTA */
+
+#cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 10%;
+    gap: 1rem;
+    background-color: var(--red);
+}
+
+#cta-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+#cta-description {
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    max-width: 40rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+
+#cta .contact-button,
+#cta .call-button {
+    padding: .75rem 2rem;
+}
+
+#cta .contact-button {
+    background-color: #fff;
+    color: var(--red);
+}
+
+#cta .contact-button:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+#cta .call-button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    gap: .5rem;
+}
+
+#cta .call-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+}
