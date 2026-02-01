@@ -5,12 +5,21 @@
 }
 
 * {
+    --font-size: 16px;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --blue: #314158;
+    --red: rgb(153, 0, 0);
     margin: 0;
+    list-style: none;
+    padding: 0;
 }
 
 html,
 body {
     height: 100%;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--blue);
 }
 
 body {
@@ -57,4 +66,103 @@ a {
 #root,
 #__next {
     isolation: isolate;
+}
+
+/* RESET CSS */
+
+/* GLOBAL CSS */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 10rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-image {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.logo h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.header-button {
+    display: flex;
+    align-items: center;
+}
+
+.contact-button,
+.call-button {
+    padding: .75rem 1rem;
+    border-radius: 5px;
+    background-color: var(--red);
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.call-button {
+    background-color: #fff;
+    color: var(--blue);
+}
+
+.hero {
+
+    background-image: url('/src/assets/hero-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 25rem;
+}
+
+.hero-infos {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding-inline: 2rem;
+    color: #fff;
+    background-color: rgba(49, 65, 88, 0.8);
+}
+
+.hero-infos h2 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.hero-infos p {
+    font-size: 1.25rem;
+    max-width: 40rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-infos a {
+    padding: .75rem 1.5rem;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 1rem;
 }

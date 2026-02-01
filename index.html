@@ -1,13 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>fv-couverture</title>
-  </head>
-  <body>
-    <div id="app"></div>
+    <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <section class="logo">
+                <img src="/src/assets/logo.jpeg" alt="Logo FV Couverture" class="logo-image" />
+                <h1>FV Couverture</h1>
+            </section>
+            <nav class="navigation">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home">Accueil</a></li>
+                    <li class="nav-item"><a href="#services">Services</a></li>
+                    <li class="nav-item"><a href="#realisations">Réalisations</a></li>
+                    <li class="nav-item"><a href="#about">À propos</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <section class="header-button">
+                <a href="#contact" class="contact-button">Demander un devis</a>
+            </section>
+        </header>
+        <section class="hero">
+            <article class="hero-infos">
+                <h2>Couvreur à Isbergues</h2>
+                <p>Services de couverture de qualité pour votre maison. Plus de 10 ans d'expérience au service des
+                    particuliers dans la région.</p>
+                <div class="buttons-container">
+                    <a href="#contact" class="contact-button">Demander un devis</a>
+                    <a href="#contact" class="call-button">Appelez-nous</a>
+                </div>
+            </article>
+        </section>
+    </div>
     <script type="module" src="/src/main.js"></script>
-  </body>
+</body>
+
 </html>
