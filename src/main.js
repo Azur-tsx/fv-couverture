@@ -2,24 +2,6 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 
-const hero = document.getElementById("hero");
-let currentHeroIndex = 0;
-const totalHeroes = 5; // Nombre total de classes hero 
-
-function changeHeroBackground() {
-    // Fade out
-    hero.classList.add("fade-out");
-
-    // Attendre la fin du fade-out, puis changer le background et fade in
-    setTimeout(() => {
-        currentHeroIndex = (currentHeroIndex + 1) % totalHeroes;
-        hero.className = `hero${currentHeroIndex}`;
-        hero.classList.remove("fade-out");
-    }, 400); // Moitié de la durée de la transition (800ms / 2)
-}
-
-setInterval(changeHeroBackground, 8000);
-
 const isbergues = [50.6241667, 2.4575];
 
 const map = L.map("map", {

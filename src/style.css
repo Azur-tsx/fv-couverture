@@ -148,35 +148,39 @@ header {
 /* Section Hero */
 
 #hero {
+    isolation: isolate;
     background-size: cover;
     background-position: center;
-    height: 25rem;
+    height: 35rem;
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
 
-#hero.fade-out {
-    opacity: .8;
+#slider {
+    position: absolute;
+    display: flex;
+    z-index: -1;
+    animation: slide-right 30s steps(6, end) infinite;
 }
 
-#hero.hero0 {
-    background-image: url('/src/assets/chantier-1.jpeg');
+#slider li,
+#slider li img {
+    height: 35rem;
+    width: 100vw;
 }
 
-#hero.hero1 {
-    background-image: url('/src/assets/chantier-2.jpeg');
+#slider li img {
+    object-fit: cover;
 }
 
-#hero.hero2 {
-    background-image: url('/src/assets/chantier-3.jpeg');
-}
+@keyframes slide-right {
+    from {
+        transform: translateX(0);
+    }
 
-#hero.hero3 {
-    background-image: url('/src/assets/chantier-4.jpeg');
-}
-
-#hero.hero4 {
-    background-image: url('/src/assets/chantier-5.jpeg');
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 .hero-infos {
@@ -674,7 +678,7 @@ header {
 
 .floating-badge:hover {
     width: unset;
-    padding: .5rem 1.5rem;
+    padding: .5rem 1.5rem .5rem O;
 }
 
 .floating-badge:hover .floating-badge__content {
