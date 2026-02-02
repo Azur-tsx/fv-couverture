@@ -10,6 +10,7 @@
     --blue: #314158;
     --red: rgb(153, 0, 0);
     --light-red: rgba(153, 0, 0, 0.2);
+    --darker-white: oklch(98.4% 0.003 247.858);
     margin: 0;
     list-style: none;
     padding: 0;
@@ -90,6 +91,7 @@ header {
     padding: 1.5rem 10rem;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -252,7 +254,7 @@ header {
     border-radius: .625rem;
     width: 20rem;
     text-align: center;
-    background-color: oklch(98.4% 0.003 247.858);
+    background-color: var(--darker-white);
     transition: box-shadow 0.3s ease;
 }
 
@@ -694,4 +696,151 @@ header {
     height: 1.5rem;
     width: 1.5rem;
     color: var(--red);
+}
+
+/* =========================
+   7. Contact
+========================= */
+
+#contact-page {
+    background-color: var(--darker-white);
+}
+
+#contact-header {
+    padding: 3rem 10%;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+#contact-header h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+
+#contact-header p {
+    color: rgba(49, 65, 88, 0.8);
+}
+
+#form-contact {
+    display: flex;
+    margin: 0 10%;
+}
+
+#contact-form {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#contact-form p {
+    color: rgba(49, 65, 88, 0.8);
+    margin-bottom: 2rem;
+}
+
+#devis-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+#devis-form input,
+#devis-form textarea {
+    border: 1px solid rgba(49, 65, 88, 0.3);
+    border-radius: 10px;
+    padding: .7rem;
+    margin-bottom: 1.5rem;
+}
+
+#devis-form #project-details {
+    min-height: 10rem;
+}
+
+.submit-button {
+    padding: .75rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--red);
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.send-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+#contact-infos {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    gap: 1rem;
+    background-color: var(--blue);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#contact-infos h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#contact-infos p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-infos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#contact-infos .contact-info-item {
+    display: flex;
+    align-items: start;
+    gap: .5rem;
+}
+
+#contact-infos .contact-icon {
+    margin-top: .2rem;
+    width: 5%;
+    color: #fff;
+}
+
+#contact-infos .text {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-infos hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: .5rem 0;
+}
+
+#contact-infos .more-infos-text {
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: .2rem;
+}
+
+#contact-page footer {
+    margin-top: 3rem;
 }
