@@ -39,7 +39,11 @@
             <h3>Contactez-nous</h3>
             <p>Parlez-nous de votre projet de couverture et nous vous fournirons un devis gratuit et sans engagement.
             </p>
-            <form id="devis-form" action="/submit-devis" method="POST">
+            <form id="devis-form" netlify netlify-honeypot="bot-field" name="devis-form">
+                <input type="hidden" name="form-name" value="devis-form" />
+                <input type="hidden" name="bot-field" />
+                <input type="hidden" name="_to" value="remycottrezweb@gmail.com" />
+
                 <label for="name">Nom complet *</label>
                 <input type="text" id="name" name="name" required placeholder="Votre nom complet" />
                 <label for="phone">Numéro de téléphone *</label>
