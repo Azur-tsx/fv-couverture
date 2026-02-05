@@ -55,22 +55,23 @@
                 <p>Rénovation complète d'une toiture en tuiles avec isolation intégrée.</p>
             </div>
         </article>
-        <article class="realisation reparation">
+        <article class="realisation bardage">
             <img src="/src/assets/chantier-2-avant.jpeg" alt="Réparation 1" class="realisations-image" />
             <img src="/src/assets/chantier-2-apres.jpeg" alt="Réparation 1 après" class="realisations-image-apres" />
             <div class="realisation-text">
-                <p class="realisation-tag">Réparation</p>
-                <h3>Réparation de fuite sur toiture</h3>
-                <p>Intervention rapide pour réparer une fuite sur une toiture en ardoises.</p>
+                <p class="realisation-tag">Bardage</p>
+                <h3>Reprise de bardage</h3>
+                <p>Reprise de bardage de type Trespa</p>
             </div>
         </article>
-        <article class="realisation charpente">
+        <article class="realisation bardage">
             <img src="/src/assets/chantier-3-avant.jpeg" alt="Charpente 1" class="realisations-image" />
             <img src="/src/assets/chantier-3-apres.jpeg" alt="Charpente 1 après" class="realisations-image-apres" />
             <div class="realisation-text">
-                <p class="realisation-tag">Charpente</p>
-                <h3>Renforcement de charpente</h3>
-                <p>Renforcement d'une charpente en bois pour assurer la stabilité de la toiture.</p>
+                <p class="realisation-tag">Bardage</p>
+                <h3>Lucarne avec bardage</h3>
+                <p>Installation d'une lucarne avec bardage joint debout sur toiture terrasse à tasseaux pour améliorer
+                    l'éclairage naturel de la maison.</p>
             </div>
         </article>
         <article class="realisation zinguerie">
@@ -208,6 +209,17 @@
                         emptyMessage.style.display = 'none';
                     }
                 }
+            });
+        });
+
+        // Gestion du clic sur les cartes de réalisation pour mobile
+        realisations.forEach(realisation => {
+            realisation.addEventListener('click', (e) => {
+                // Éviter le clic sur les boutons de filtre
+                if (e.target.closest('.filter-button')) return;
+
+                // Toggle la classe active
+                realisation.classList.toggle('active');
             });
         });
     </script>

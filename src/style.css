@@ -937,6 +937,10 @@ header {
     opacity: 1;
 }
 
+.realisation.active .realisations-image-apres {
+    opacity: 1;
+}
+
 .realisation-text {
     display: flex;
     flex-direction: column;
