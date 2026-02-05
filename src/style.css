@@ -11,6 +11,7 @@
     --red: rgb(153, 0, 0);
     --light-red: rgba(153, 0, 0, 0.2);
     --darker-white: oklch(98.4% 0.003 247.858);
+    --padding-page: 3rem 20%;
     margin: 0;
     list-style: none;
     padding: 0;
@@ -222,7 +223,7 @@ header {
 /* SERVICES */
 
 #services {
-    padding: 3rem 10%;
+    padding: var(--padding-page);
 }
 
 #services-title {
@@ -348,7 +349,7 @@ header {
     display: flex;
     flex-direction: column;
     background-color: rgba(49, 65, 88, 0.05);
-    padding: 3rem 10%;
+    padding: var(--padding-page);
 }
 
 #why-us-title {
@@ -405,7 +406,7 @@ header {
 
 #zone {
     display: flex;
-    padding: 3rem 10%;
+    padding: var(--padding-page);
     gap: 3rem;
 }
 
@@ -451,7 +452,7 @@ header {
 /* Section avis clients */
 
 #reviews {
-    padding: 3rem 10%;
+    padding: var(--padding-page);
     background-color: rgba(49, 65, 88, 0.05);
 }
 
@@ -530,7 +531,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 10%;
+    padding: var(--padding-page);
     gap: 1rem;
     background-color: var(--red);
 }
@@ -707,7 +708,7 @@ header {
 }
 
 #contact-header {
-    padding: 3rem 10%;
+    padding: var(--padding-page);
     text-align: center;
     margin-bottom: .5rem;
 }
@@ -849,19 +850,22 @@ header {
    8. Réalisations
 ========================= */
 
-#realisations-hero {
-    padding: 3rem 10%;
+#realisations-hero,
+#about-hero {
+    padding: var(--padding-page);
     background-color: var(--blue);
     color: #fff;
 }
 
-#realisations-hero h2 {
+#realisations-hero h2,
+#about-hero h2 {
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: .5rem;
 }
 
-#realisations-hero p {
+#realisations-hero p,
+#about-hero p {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.25rem;
 }
@@ -901,7 +905,7 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    padding: 3rem 10%;
+    padding: var(--padding-page);
 }
 
 .realisation {
@@ -959,7 +963,89 @@ header {
 }
 
 /* =========================
-   9. Alerte
+   9. A propos
+========================= */
+
+#about {
+    padding: var(--padding-page);
+    background-color: var(--darker-white);
+}
+
+#about hr {
+    border: none;
+    border-top: 1px solid rgba(49, 65, 88, 0.1);
+    margin: 1rem 0;
+}
+
+#about #about-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#about .about-description {
+    display: flex;
+    gap: 2rem;
+}
+
+#about .about-description img {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#about .about-text h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+#about .about-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+#about .certifications {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-self: center;
+    gap: 1rem;
+    background-color: var(--darker-white);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+#about .certification-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+#about .certification-svg {
+    height: 2rem;
+    width: 2rem;
+    color: var(--red);
+}
+
+#about .certification-text h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+#about .certification-text p {
+    color: rgba(49, 65, 88, 0.8);
+    font-size: 0.95rem;
+}
+
+/* =========================
+   10. Alerte
 ========================= */
 
 .alert {
