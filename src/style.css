@@ -1331,4 +1331,15 @@ header {
         flex-direction: column;
         align-items: center;
     }
+
+    #form-contact {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #contact-infos {
+        position: relative;
+        margin-left: 0;
+        top: unset;
+    }
 }
