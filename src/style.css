@@ -1316,4 +1316,9 @@ header {
         gap: 1rem;
         padding: 0;
     }
+
+    #realisations-filters {
+        gap: .5rem;
+        flex-wrap: wrap;
+    }
 }

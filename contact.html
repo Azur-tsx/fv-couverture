@@ -17,7 +17,12 @@
                 <h1>FV Couverture</h1>
             </section>
         </a>
-        <nav class="navigation">
+        <button class="menu-burger" id="menuBurger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="navigation" id="navigation">
             <ul class="nav-list">
                 <li class="nav-item"><a href="index.html">Accueil</a></li>
                 <li class="nav-item"><a href="index.html#services">Services</a></li>
@@ -195,6 +200,26 @@
             <span>10 ans sur nos interventions</span>
         </div>
     </aside>
+
+    <script>
+        // Menu burger
+        const menuBurger = document.getElementById('menuBurger');
+        const navigation = document.getElementById('navigation');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        menuBurger.addEventListener('click', () => {
+            menuBurger.classList.toggle('active');
+            navigation.classList.toggle('active');
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuBurger.classList.remove('active');
+                navigation.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
