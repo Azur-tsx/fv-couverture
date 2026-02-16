@@ -1165,11 +1165,18 @@ header {
         gap: 0;
         text-align: left;
         padding: 1rem;
+        width: 100%;
     }
 
     .nav-item {
-        padding: 0.75rem 0;
         border-bottom: 1px solid rgba(49, 65, 88, 0.1);
+        width: 100%;
+    }
+
+    .nav-item a {
+        padding: 0.75rem 0;
+        width: 100%;
+        display: block;
     }
 
     .nav-item:last-child {
@@ -1185,9 +1192,21 @@ header {
         height: 20rem;
     }
 
+    #slider {
+        animation: unset;
+    }
+
     #slider li,
     #slider li img {
         height: 20rem;
+    }
+
+    #slider li {
+        display: none;
+    }
+
+    #slider li:first-child {
+        display: block;
     }
 
     .hero-infos {
@@ -1341,5 +1360,255 @@ header {
         position: relative;
         margin-left: 0;
         top: unset;
+    }
+}
+
+/* =========================
+   11. MODE SOMBRE
+========================= */
+
+@media (prefers-color-scheme: dark) {
+    * {
+        --blue: #e8eef7;
+        --red: rgb(255, 100, 100);
+        --light-red: rgba(255, 100, 100, 0.15);
+        --darker-white: #1a1a1a;
+    }
+
+    html,
+    body {
+        background-color: #121212;
+        color: var(--blue);
+    }
+
+    header {
+        background-color: rgba(18, 18, 18, 0.95);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-burger span {
+        background-color: var(--blue);
+    }
+
+    .contact-button:hover {
+        background-color: rgb(204, 50, 50);
+    }
+
+    .services-item {
+        background-color: #1e1e1e;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .services-item:hover {
+        box-shadow: 0 4px 6px rgba(255, 100, 100, 0.2);
+    }
+
+    #services-list .right p,
+    #services-list hr {
+        border-color: rgba(232, 238, 247, 0.2);
+        color: rgba(232, 238, 247, 0.7);
+    }
+
+    #services-description,
+    #why-us-description,
+    #reviews-description,
+    #zone-description,
+    #contact-header p,
+    .why-us-item p,
+    .right-item p {
+        color: rgba(232, 238, 247, 0.7);
+    }
+
+    #why-us {
+        background-color: rgba(18, 18, 18, 0.5);
+    }
+
+    .filter-button {
+        background-color: #1e1e1e;
+        color: var(--blue);
+        border: 1px solid rgba(232, 238, 247, 0.2);
+    }
+
+    .filter-button:hover {
+        background-color: #2a2a2a;
+    }
+
+    .filter-button.active {
+        background-color: var(--red);
+        color: #fff;
+    }
+
+    .filter-button.active:hover {
+        background-color: rgb(255, 120, 120);
+    }
+
+    #reviews {
+        background-color: rgba(18, 18, 18, 0.5);
+    }
+
+    .review-item {
+        background-color: #1e1e1e;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .review-item hr {
+        border-color: rgba(232, 238, 247, 0.1);
+    }
+
+    .review-text {
+        color: rgba(232, 238, 247, 0.9);
+    }
+
+    .review-author-location {
+        color: rgba(232, 238, 247, 0.6);
+    }
+
+    #cta {
+        background-color: rgb(204, 50, 50);
+    }
+
+    #cta .contact-button {
+        background-color: #fff;
+        color: rgb(204, 50, 50);
+    }
+
+    #cta .contact-button:hover {
+        background-color: rgb(230, 230, 230);
+    }
+
+    #contact-page {
+        background-color: #121212;
+    }
+
+    #contact-form {
+        background-color: #1e1e1e;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #contact-form p {
+        color: rgba(232, 238, 247, 0.7);
+    }
+
+    #devis-form input,
+    #devis-form textarea {
+        background-color: #2a2a2a;
+        border-color: rgba(232, 238, 247, 0.2);
+        color: var(--blue);
+    }
+
+    #devis-form input::placeholder,
+    #devis-form textarea::placeholder {
+        color: rgba(232, 238, 247, 0.5);
+    }
+
+    #contact-infos {
+        background-color: #1a1a1a;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #contact-infos hr {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #realisations-hero,
+    #about-hero {
+        background-color: #1a1a1a;
+        color: var(--blue);
+    }
+
+    #realisations-hero p,
+    #about-hero p {
+        color: rgba(232, 238, 247, 0.7);
+    }
+
+    #realisations-filters {
+        border-bottom-color: rgba(232, 238, 247, 0.1);
+    }
+
+    .realisation {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #about {
+        background-color: #121212;
+    }
+
+    #about #about-card {
+        background-color: #1e1e1e;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #about hr {
+        border-color: rgba(232, 238, 247, 0.1);
+    }
+
+    #about .certifications {
+        background-color: #2a2a2a;
+    }
+
+    #about .certification-text p {
+        color: rgba(232, 238, 247, 0.7);
+    }
+
+    #footer {
+        background-color: #0a0a0a;
+    }
+
+    #footer hr {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .floating-badge {
+        background-color: #1e1e1e;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .alert {
+        background-color: #1e1e1e;
+        color: var(--blue);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .alert a {
+        background-color: var(--red);
+        color: #fff;
+    }
+
+    .map {
+        border-color: rgba(232, 238, 247, 0.1);
+        filter: brightness(0.8);
+    }
+
+    .zone-list-item,
+    .right-item h4,
+    #services-list .right h3 {
+        color: var(--blue);
+    }
+
+    .call-button {
+        border-color: var(--blue);
+        color: #1a1a1a;
+    }
+
+    .submit-button:hover {
+        background-color: rgb(204, 50, 50);
+    }
+
+    @media (max-width: 768px) {
+        .navigation {
+            background-color: rgba(18, 18, 18, 0.95);
+        }
+
+        .navigation.active {
+            border-bottom-color: rgba(232, 238, 247, 0.1);
+        }
+
+        .nav-item {
+            border-bottom-color: rgba(232, 238, 247, 0.1);
+        }
+
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+        }
     }
 }
