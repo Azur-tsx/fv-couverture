@@ -723,6 +723,15 @@ header {
     padding-bottom: 1rem;
 }
 
+.footer__credit a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: underline;
+}
+
+.footer__credit a:hover {
+    color: #fff;
+}
+
 .footer__region {
     color: rgba(255, 255, 255, 0.8);
 }
@@ -1156,7 +1165,52 @@ header {
 }
 
 /* =========================
-   10. Alerte
+   10. Pages légales
+========================= */
+
+.legal {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 2rem 4rem;
+}
+
+.legal h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.legal h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.legal p,
+.legal ul {
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    color: rgba(49, 65, 88, 0.85);
+}
+
+.legal ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.legal a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.legal__updated {
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: rgba(49, 65, 88, 0.55);
+}
+
+/* =========================
+   11. Alerte
 ========================= */
 
 .alert-page {
@@ -1754,6 +1808,19 @@ header {
 
     .alert p {
         color: rgba(232, 238, 247, 0.7);
+    }
+
+    .legal p,
+    .legal ul {
+        color: rgba(232, 238, 247, 0.75);
+    }
+
+    .legal a {
+        color: rgba(232, 238, 247, 0.9);
+    }
+
+    .legal__updated {
+        color: rgba(232, 238, 247, 0.4);
     }
 
     #map {

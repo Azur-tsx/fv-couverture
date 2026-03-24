@@ -137,6 +137,19 @@ if (filterButtons.length > 0) {
     });
 }
 
+// --- Anti-spam formulaire (timing) ---
+const devisForm = document.getElementById("devis-form");
+
+if (devisForm) {
+    const loadedAt = Date.now();
+
+    devisForm.addEventListener("submit", (e) => {
+        if (Date.now() - loadedAt < 3000) {
+            e.preventDefault();
+        }
+    });
+}
+
 // --- Reveal au scroll ---
 const revealElements = document.querySelectorAll(".reveal");
 
