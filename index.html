@@ -5,11 +5,44 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/public/logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Artisan couvreur à Isbergues – FV Couverture. Couverture, charpente, zinguerie, isolation et Velux. Plus de 10 ans d'expérience. Devis gratuit." />
     <title>FV Couverture</title>
     <link rel="stylesheet" href="/src/style.css" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "FV Couverture",
+  "description": "Artisan couvreur certifié à Isbergues, Pas de Calais. Plus de 10 ans d'expérience en couverture, charpente, zinguerie et isolation.",
+  "url": "https://fv-couverture.fr",
+  "telephone": "+33768178183",
+  "email": "fv.couv@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Isbergues",
+    "addressRegion": "Hauts-de-France",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.6241667,
+    "longitude": 2.4575
+  },
+  "areaServed": ["Isbergues","Saint-Omer","Hazebrouck","Béthune","Lens","Arras","Calais","Lille"],
+  "openingHours": ["Mo-Fr 07:30-19:00", "Sa 08:00-12:00"],
+  "priceRange": "€€"
+}
+</script>
 </head>
 
 <body>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.dataset.theme = saved ?? (prefersDark ? 'dark' : 'light');
+        })();
+    </script>
     <div id="app">
         <header class="header">
             <a href="#hero">
@@ -32,6 +65,14 @@
                     <li class="header__nav-item"><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <button class="header__theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre/clair">
+                <svg class="theme-icon theme-icon--sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                </svg>
+                <svg class="theme-icon theme-icon--moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                </svg>
+            </button>
             <section class="header__cta">
                 <a href="contact.html" class="btn--primary">Demander un devis</a>
             </section>
@@ -75,7 +116,7 @@
 
         <!-- Nos Services -->
 
-        <section id="services">
+        <section id="services" class="reveal">
             <h2 class="services__title">Nos Services</h2>
             <p class="services__desc">Solutions de couverture complètes adaptées à vos besoins</p>
             <ul class="services__list">
@@ -242,7 +283,7 @@
 
         <!-- Pourquoi nous choisir -->
 
-        <section id="why-us">
+        <section id="why-us" class="reveal">
             <h2>Pourquoi nous choisir</h2>
             <p>Votre partenaire de confiance en couverture avec un engagement d'excellence</p>
             <ul class="why-us__list">
@@ -298,7 +339,7 @@
 
         <!-- Zone d'intervention -->
 
-        <section id="zone">
+        <section id="zone" class="reveal">
             <article class="zone__info">
                 <h2>Zone d'intervention locale</h2>
                 <p>Basés à Isbergues, nous intervenons fièrement auprès des particuliers dans
@@ -378,7 +419,7 @@
 
         <!-- Avis clients -->
 
-        <section id="reviews">
+        <section id="reviews" class="reveal">
             <h2>Avis Clients</h2>
             <p>Ce que nos clients disent de nous</p>
             <p class="reviews__disclaimer">Les premiers avis seront publiés prochainement.</p>
@@ -425,7 +466,7 @@
 
         <!-- Call to Action -->
 
-        <section id="cta">
+        <section id="cta" class="reveal">
             <h2>
                 <span class="cta__title-full">Prêt à commencer votre projet de couverture ?</span>
                 <span class="cta__title-short">Prêt à commencer ?</span>
@@ -525,6 +566,13 @@
             <span>10 ans sur nos interventions</span>
         </div>
     </aside>
+
+    <a href="tel:+33768178183" class="sticky-call" aria-label="Appeler FV Couverture">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="sticky-call__icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+        </svg>
+        Appeler
+    </a>
 
     <script type="module" src="/src/main.js"></script>
 </body>

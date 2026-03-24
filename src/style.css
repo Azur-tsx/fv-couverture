@@ -1159,29 +1159,97 @@ header {
    10. Alerte
 ========================= */
 
+.alert-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--darker-white);
+}
+
 .alert {
-    position: fixed;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--darker-white);
-    color: var(--blue);
-    padding: .75rem 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    gap: 1rem;
+    padding: 4rem 2rem;
+    text-align: center;
 }
 
-.alert a {
-    background-color: var(--red);
-    color: #fff;
-    padding: .25rem .75rem;
-    border-radius: 5px;
-    font-weight: 500;
-    width: fit-content;
-    margin-top: 1rem;
+.alert__icon {
+    width: 4rem;
+    height: 4rem;
+    color: #22c55e;
+}
+
+.alert h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.alert p {
+    color: #666;
+    max-width: 30rem;
+}
+
+.alert .btn--primary {
+    margin-top: 0.5rem;
+}
+
+/* =========================
+   Reveal au scroll
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   Theme toggle button
+========================= */
+
+.header__theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.header__theme-toggle:hover {
+    background-color: rgba(49, 65, 88, 0.1);
+}
+
+.theme-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.theme-icon--sun { display: none; }
+.theme-icon--moon { display: block; }
+
+:root[data-theme="dark"] .theme-icon--sun { display: block; }
+:root[data-theme="dark"] .theme-icon--moon { display: none; }
+
+/* =========================
+   Sticky call button
+========================= */
+
+.sticky-call {
+    display: none;
 }
 
 /* RESPONSIVE */
@@ -1437,13 +1505,44 @@ header {
         width: 100%;
         padding: 0;
     }
+
+    .sticky-call {
+        display: flex;
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        background: var(--red);
+        color: #fff;
+        padding: 0.75rem 2rem;
+        border-radius: 999px;
+        gap: 0.5rem;
+        align-items: center;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .sticky-call:hover {
+        background-color: rgb(153, 0, 0);
+        transform: translateX(-50%) scale(1.03);
+    }
+
+    .sticky-call__icon {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
 }
 
 /* =========================
    11. MODE SOMBRE
 ========================= */
 
-@media (prefers-color-scheme: dark) {
+:root[data-theme="dark"] {
     * {
         --blue: #e8eef7;
         --red: rgb(255, 100, 100);
@@ -1643,15 +1742,8 @@ header {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     }
 
-    .alert {
-        background-color: #1e1e1e;
-        color: var(--blue);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    }
-
-    .alert a {
-        background-color: var(--red);
-        color: #fff;
+    .alert p {
+        color: rgba(232, 238, 247, 0.7);
     }
 
     #map {

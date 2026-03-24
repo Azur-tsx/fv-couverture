@@ -2,6 +2,18 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 
+// --- Dark mode toggle ---
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        const current = document.documentElement.dataset.theme;
+        const next = current === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("theme", next);
+    });
+}
+
 // --- Burger menu ---
 const menuBurger = document.getElementById("menuBurger");
 const navigation = document.getElementById("navigation");
@@ -123,4 +135,23 @@ if (filterButtons.length > 0) {
             card.classList.toggle("active");
         });
     });
+}
+
+// --- Reveal au scroll ---
+const revealElements = document.querySelectorAll(".reveal");
+
+if (revealElements.length > 0) {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
 }
