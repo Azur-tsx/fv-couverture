@@ -10,7 +10,6 @@
     --blue: #314158;
     --red: rgb(153, 0, 0);
     --light-red: rgba(153, 0, 0, 0.2);
-    --darker-white: oklch(98.4% 0.003 247.858);
     --padding-page: 3rem 20%;
     margin: 0;
     list-style: none;
@@ -69,6 +68,12 @@ a {
 :root {
     scroll-behavior: smooth;
     --header-h: 80px;
+    --surface: #fff;
+    --surface-alt: oklch(98.4% 0.003 247.858);
+    --bg: #fff;
+    --text-muted: rgba(49, 65, 88, 0.75);
+    --border: rgba(49, 65, 88, 0.1);
+    --shadow-sm: rgba(0, 0, 0, 0.1);
 }
 
 section[id] {
@@ -92,7 +97,7 @@ header {
     padding: 1.5rem 10rem;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--shadow-sm);
 }
 
 /* Header BEM */
@@ -148,7 +153,7 @@ header {
 }
 
 .btn--outline {
-    background-color: #fff;
+    background-color: var(--surface);
     color: var(--blue);
 }
 
@@ -289,7 +294,7 @@ header {
 .services__desc {
     text-align: center;
     margin: 0 auto 3rem auto;
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
 }
 
 .services__list {
@@ -308,12 +313,12 @@ header {
     border-radius: .625rem;
     width: 20rem;
     text-align: center;
-    background-color: var(--darker-white);
+    background-color: var(--surface-alt);
     transition: box-shadow 0.3s ease;
 }
 
 .services__card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-sm);
 }
 
 .services__card-header {
@@ -338,14 +343,14 @@ header {
 }
 
 .services__card-heading p {
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.4;
 }
 
 .services__card hr {
     border: none;
-    border-top: 1px solid rgba(49, 65, 88, 0.1);
+    border-top: 1px solid var(--border);
     margin: .25rem 0;
     width: 100%;
 }
@@ -391,7 +396,7 @@ header {
 }
 
 .services__detail-body p {
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.4;
 }
@@ -415,7 +420,7 @@ header {
 #why-us>p {
     text-align: center;
     margin: 0 auto 3rem auto;
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
     max-width: 40rem;
 }
 
@@ -452,7 +457,7 @@ header {
 }
 
 .why-us__item p {
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
 }
 
 /* Section Zone d'intervention */
@@ -478,7 +483,7 @@ header {
 }
 
 .zone__info>p {
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
     margin-bottom: 2rem;
 }
 
@@ -519,7 +524,7 @@ header {
 #reviews>p {
     text-align: center;
     margin: 0 auto 3rem auto;
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
 }
 
 .reviews__disclaimer {
@@ -536,10 +541,10 @@ header {
 }
 
 .reviews__item {
-    background-color: #fff;
+    background-color: var(--surface);
     padding: 1.5rem;
     border-radius: .625rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-sm);
     width: 25rem;
     display: flex;
     flex-direction: column;
@@ -548,7 +553,7 @@ header {
 
 .reviews__item hr {
     border: none;
-    border-top: 1px solid rgba(49, 65, 88, 0.1);
+    border-top: 1px solid var(--border);
     margin-top: auto;
 }
 
@@ -746,9 +751,9 @@ header {
     display: flex;
     gap: .5rem;
     align-items: center;
-    background-color: #fff;
+    background-color: var(--surface);
     border-radius: 20rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-sm);
     cursor: pointer;
     overflow: hidden;
     transition: max-width 0.3s ease;
@@ -779,7 +784,7 @@ header {
 ========================= */
 
 #contact-page {
-    background-color: var(--darker-white);
+    background-color: var(--surface-alt);
 }
 
 #contact-header {
@@ -795,7 +800,7 @@ header {
 }
 
 #contact-header p {
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
 }
 
 #form-contact {
@@ -808,9 +813,9 @@ header {
     padding: 2rem;
     flex-direction: column;
     gap: 1rem;
-    background-color: #fff;
+    background-color: var(--surface);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-sm);
 }
 
 .contact-form h3 {
@@ -819,13 +824,13 @@ header {
 }
 
 .contact-form p {
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
     margin-bottom: 2rem;
 }
 
 .contact-form__notice {
     font-size: 0.8rem;
-    color: rgba(49, 65, 88, 0.7) !important;
+    color: var(--text-muted) !important;
     background-color: rgba(49, 65, 88, 0.05);
     border-left: 3px solid rgba(49, 65, 88, 0.2);
     padding: 0.6rem 0.8rem;
@@ -877,7 +882,7 @@ header {
     color: #fff;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-sm);
 }
 
 .contact-sidebar h3 {
@@ -956,13 +961,13 @@ header {
     justify-content: center;
     gap: 1rem;
     padding: 2rem 10%;
-    border-bottom: 1px solid rgba(49, 65, 88, 0.1);
+    border-bottom: 1px solid var(--border);
 }
 
 .filter__btn {
     padding: .5rem 1rem;
     border-radius: 25rem;
-    background-color: var(--darker-white);
+    background-color: var(--surface-alt);
     color: var(--blue);
     font-weight: 500;
     cursor: pointer;
@@ -1001,8 +1006,8 @@ header {
     width: 20rem;
     display: flex;
     flex-direction: column;
-    background-color: var(--blue);
-    box-shadow: 0 2px 12px rgba(49, 65, 88, 0.2);
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -1067,12 +1072,12 @@ header {
 
 #about {
     padding: var(--padding-page);
-    background-color: var(--darker-white);
+    background-color: var(--surface-alt);
 }
 
 #about hr {
     border: none;
-    border-top: 1px solid rgba(49, 65, 88, 0.1);
+    border-top: 1px solid var(--border);
     margin: 1rem 0;
 }
 
@@ -1081,8 +1086,8 @@ header {
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--surface);
+    box-shadow: 0 4px 6px var(--shadow-sm);
     border-radius: 10px;
 }
 
@@ -1145,7 +1150,7 @@ header {
 }
 
 .commitments__item p {
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
 }
 
 /* Certifications */
@@ -1156,7 +1161,7 @@ header {
     width: fit-content;
     align-self: center;
     gap: 1rem;
-    background-color: var(--darker-white);
+    background-color: var(--surface-alt);
     padding: 1rem;
     border-radius: 10px;
 }
@@ -1179,7 +1184,7 @@ header {
 }
 
 .certifications__body p {
-    color: rgba(49, 65, 88, 0.8);
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -1236,7 +1241,7 @@ header {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: var(--darker-white);
+    background-color: var(--surface-alt);
 }
 
 .alert {
@@ -1360,7 +1365,7 @@ header {
         align-items: center;
         background-color: rgba(255, 255, 255, 0.95);
         z-index: 1;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px var(--shadow-sm);
     }
 
     .header__burger {
@@ -1380,7 +1385,7 @@ header {
 
     .header__nav.active {
         max-height: 500px;
-        border-bottom: 1px solid rgba(49, 65, 88, 0.1);
+        border-bottom: 1px solid var(--border);
     }
 
     .header__nav-list {
@@ -1392,7 +1397,7 @@ header {
     }
 
     .header__nav-item {
-        border-bottom: 1px solid rgba(49, 65, 88, 0.1);
+        border-bottom: 1px solid var(--border);
         width: 100%;
     }
 
@@ -1626,16 +1631,22 @@ header {
 ========================= */
 
 :root[data-theme="dark"] {
+    --surface: #1e1e1e;
+    --surface-alt: #1a1a1a;
+    --bg: #121212;
+    --text-muted: rgba(232, 238, 247, 0.7);
+    --border: rgba(232, 238, 247, 0.1);
+    --shadow-sm: rgba(0, 0, 0, 0.3);
+
     * {
         --blue: #e8eef7;
         --red: rgb(255, 100, 100);
         --light-red: rgba(255, 100, 100, 0.15);
-        --darker-white: #1a1a1a;
     }
 
     html,
     body {
-        background-color: #121212;
+        background-color: var(--bg);
         color: var(--blue);
     }
 
@@ -1658,7 +1669,7 @@ header {
     }
 
     .services__card {
-        background-color: #1e1e1e;
+        background-color: var(--surface);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 
@@ -1687,7 +1698,7 @@ header {
     }
 
     .filter__btn {
-        background-color: #1e1e1e;
+        background-color: var(--surface);
         color: var(--blue);
         border: 1px solid rgba(232, 238, 247, 0.2);
     }
@@ -1710,12 +1721,12 @@ header {
     }
 
     .reviews__item {
-        background-color: #1e1e1e;
+        background-color: var(--surface);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 
     .reviews__item hr {
-        border-color: rgba(232, 238, 247, 0.1);
+        border-color: var(--border);
     }
 
     .reviews__item-text {
@@ -1740,11 +1751,11 @@ header {
     }
 
     #contact-page {
-        background-color: #121212;
+        background-color: var(--bg);
     }
 
     .contact-form {
-        background-color: #1e1e1e;
+        background-color: var(--surface);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 
@@ -1765,7 +1776,7 @@ header {
     }
 
     .contact-sidebar {
-        background-color: #1a1a1a;
+        background-color: var(--surface-alt);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 
@@ -1775,7 +1786,7 @@ header {
 
     #realisations-hero,
     #about-hero {
-        background-color: #1a1a1a;
+        background-color: var(--surface-alt);
         color: var(--blue);
     }
 
@@ -1785,25 +1796,25 @@ header {
     }
 
     #realisations-filters {
-        border-bottom-color: rgba(232, 238, 247, 0.1);
+        border-bottom-color: var(--border);
     }
 
     .realisation {
-        background-color: #1e2a3a;
+        background-color: #111;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     }
 
     #about {
-        background-color: #121212;
+        background-color: var(--bg);
     }
 
     .about__card {
-        background-color: #1e1e1e;
+        background-color: var(--surface);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 
     #about hr {
-        border-color: rgba(232, 238, 247, 0.1);
+        border-color: var(--border);
     }
 
     .certifications__grid {
@@ -1827,7 +1838,7 @@ header {
     }
 
     .badge {
-        background-color: #1e1e1e;
+        background-color: var(--surface);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     }
 
@@ -1855,7 +1866,7 @@ header {
     }
 
     #map {
-        border-color: rgba(232, 238, 247, 0.1);
+        border-color: var(--border);
         filter: brightness(0.8);
     }
 
@@ -1880,11 +1891,11 @@ header {
         }
 
         .header__nav.active {
-            border-bottom-color: rgba(232, 238, 247, 0.1);
+            border-bottom-color: var(--border);
         }
 
         .header__nav-item {
-            border-bottom-color: rgba(232, 238, 247, 0.1);
+            border-bottom-color: var(--border);
         }
 
         header {
