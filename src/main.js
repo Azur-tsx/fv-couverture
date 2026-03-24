@@ -139,16 +139,35 @@ if (filterButtons.length > 0) {
     });
 }
 
-// --- Anti-spam formulaire (timing) ---
+// --- Anti-spam formulaire (timing) + feedback visuel ---
 const devisForm = document.getElementById("devis-form");
 
 if (devisForm) {
     const loadedAt = Date.now();
+    const submitBtn = devisForm.querySelector(".btn--submit");
 
     devisForm.addEventListener("submit", (e) => {
         if (Date.now() - loadedAt < 3000) {
             e.preventDefault();
+            return;
         }
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Envoi en cours…";
+        }
+    });
+}
+
+// --- Retour en haut ---
+const backToTop = document.getElementById("backToTop");
+
+if (backToTop) {
+    window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("is-visible", window.scrollY > 400);
+    }, { passive: true });
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
 
