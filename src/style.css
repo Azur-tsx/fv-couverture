@@ -91,7 +91,7 @@ header {
     justify-content: space-between;
     padding: 1.5rem 10rem;
     background-color: rgba(255, 255, 255, 0.95);
-    z-index: 1;
+    z-index: 5;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -1238,11 +1238,21 @@ header {
     height: 1.4rem;
 }
 
-.theme-icon--sun { display: none; }
-.theme-icon--moon { display: block; }
+.theme-icon--sun {
+    display: none;
+}
 
-:root[data-theme="dark"] .theme-icon--sun { display: block; }
-:root[data-theme="dark"] .theme-icon--moon { display: none; }
+.theme-icon--moon {
+    display: block;
+}
+
+:root[data-theme="dark"] .theme-icon--sun {
+    display: block;
+}
+
+:root[data-theme="dark"] .theme-icon--moon {
+    display: none;
+}
 
 /* =========================
    Sticky call button
