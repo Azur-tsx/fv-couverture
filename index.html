@@ -49,15 +49,30 @@
                     <a href="tel:+33768178183" class="btn--outline"> Appelez-nous</a>
                 </div>
             </article>
-            <div class="hero__media">
-                <img-comparison-slider>
-                    <img slot="first" src="/src/assets/chantier-1-avant.jpeg" alt="Toiture avant rénovation" class="hero__img" />
-                    <img slot="second" src="/src/assets/chantier-1-apres.jpeg" alt="Toiture après rénovation" class="hero__img" loading="lazy" />
-                </img-comparison-slider>
-                <div class="hero__comparison-labels" aria-hidden="true">
-                    <span class="hero__comparison-label">Avant</span>
-                    <span class="hero__comparison-label">Après</span>
-                </div>
+            <div class="hero__media" aria-label="Photos de chantiers de toiture">
+                <ul class="hero__slider">
+                    <li class="hero__slide is-active">
+                        <img src="/src/assets/chantier-1-avant.jpeg" alt="Toiture avant rénovation" class="hero__img" />
+                    </li>
+                    <li class="hero__slide">
+                        <img src="/src/assets/chantier-1-apres.jpeg" alt="Toiture après rénovation" class="hero__img" loading="lazy" />
+                    </li>
+                    <li class="hero__slide">
+                        <img src="/src/assets/chantier-2-avant.jpeg" alt="Bardage avant travaux" class="hero__img" loading="lazy" />
+                    </li>
+                    <li class="hero__slide">
+                        <img src="/src/assets/chantier-2-apres.jpeg" alt="Bardage après travaux" class="hero__img" loading="lazy" />
+                    </li>
+                    <li class="hero__slide">
+                        <img src="/src/assets/chantier-3-avant.jpeg" alt="Lucarne avant travaux" class="hero__img" loading="lazy" />
+                    </li>
+                    <li class="hero__slide">
+                        <img src="/src/assets/chantier-3-apres.jpeg" alt="Lucarne après travaux" class="hero__img" loading="lazy" />
+                    </li>
+                </ul>
+                <button class="hero__control hero__control--prev" type="button" data-hero-control="prev" aria-label="Image précédente">&#10094;</button>
+                <button class="hero__control hero__control--next" type="button" data-hero-control="next" aria-label="Image suivante">&#10095;</button>
+                <div class="hero__indicators" aria-label="Navigation entre les images"></div>
             </div>
         </section>
 
