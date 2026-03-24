@@ -8,7 +8,7 @@ const menuBurger = document.getElementById("menuBurger");
 const navigation = document.getElementById("navigation");
 
 if (menuBurger && navigation) {
-    const navItems = document.querySelectorAll(".nav-item");
+    const navItems = document.querySelectorAll(".header__nav-item");
 
     menuBurger.addEventListener("click", () => {
         menuBurger.classList.toggle("active");
@@ -62,7 +62,7 @@ starContainers.forEach((starContainer) => {
 });
 
 // --- Realisations filter ---
-const filterButtons = document.querySelectorAll(".filter-button");
+const filterButtons = document.querySelectorAll(".filter__btn");
 
 if (filterButtons.length > 0) {
     const realisationCards = document.querySelectorAll(".realisation");
@@ -73,8 +73,8 @@ if (filterButtons.length > 0) {
         button.addEventListener("click", () => {
             const filterValue = button.getAttribute("data-filter");
 
-            filterButtons.forEach((fb) => fb.classList.remove("active"));
-            button.classList.add("active");
+            filterButtons.forEach((fb) => fb.classList.remove("is-active"));
+            button.classList.add("is-active");
 
             let visibleCount = 0;
 
@@ -104,7 +104,7 @@ if (filterButtons.length > 0) {
 
     realisationCards.forEach((card) => {
         card.addEventListener("click", (event) => {
-            if (event.target.closest(".filter-button")) return;
+            if (event.target.closest(".filter__btn")) return;
             card.classList.toggle("active");
         });
     });
