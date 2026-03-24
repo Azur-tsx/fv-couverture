@@ -1,5 +1,6 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "img-comparison-slider";
 import "./style.css";
 
 // --- Burger menu ---
@@ -59,109 +60,6 @@ starContainers.forEach((starContainer) => {
 </svg>
   `).join("");
 });
-
-// --- Hero Carousel ---
-const heroSection = document.getElementById("hero");
-const heroSlides = document.querySelectorAll(".hero-slide");
-const heroPrevButton = document.querySelector("[data-hero-control='prev']");
-const heroNextButton = document.querySelector("[data-hero-control='next']");
-const heroIndicatorsContainer = document.querySelector(".hero-indicators");
-
-if (heroSection && heroSlides.length > 0 && heroIndicatorsContainer) {
-    let currentSlideIndex = 0;
-    const autoPlayDelay = 6000;
-    let autoPlayTimer;
-
-    const createIndicators = () => {
-        heroIndicatorsContainer.innerHTML = "";
-        heroSlides.forEach((_, index) => {
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.className = "hero-indicator";
-            indicator.setAttribute("data-hero-slide", String(index));
-            if (index === 0) {
-                indicator.classList.add("is-active");
-            }
-            heroIndicatorsContainer.appendChild(indicator);
-        });
-    };
-
-    const updateIndicators = (activeIndex) => {
-        const indicators = heroIndicatorsContainer.querySelectorAll(".hero-indicator");
-        indicators.forEach((indicator) => {
-            indicator.classList.toggle(
-                "is-active",
-                Number(indicator.getAttribute("data-hero-slide")) === activeIndex,
-            );
-        });
-    };
-
-    const showSlide = (index) => {
-        heroSlides.forEach((slide, slideIndex) => {
-            slide.classList.toggle("is-active", slideIndex === index);
-        });
-        updateIndicators(index);
-        currentSlideIndex = index;
-    };
-
-    const goToNextSlide = () => {
-        const nextIndex = (currentSlideIndex + 1) % heroSlides.length;
-        showSlide(nextIndex);
-    };
-
-    const goToPreviousSlide = () => {
-        const previousIndex = (currentSlideIndex - 1 + heroSlides.length) % heroSlides.length;
-        showSlide(previousIndex);
-    };
-
-    const startAutoPlay = () => {
-        stopAutoPlay();
-        autoPlayTimer = window.setInterval(goToNextSlide, autoPlayDelay);
-    };
-
-    const stopAutoPlay = () => {
-        if (autoPlayTimer) {
-            window.clearInterval(autoPlayTimer);
-        }
-    };
-
-    createIndicators();
-    startAutoPlay();
-
-    if (heroPrevButton) {
-        heroPrevButton.addEventListener("click", () => {
-            stopAutoPlay();
-            goToPreviousSlide();
-            startAutoPlay();
-        });
-    }
-
-    if (heroNextButton) {
-        heroNextButton.addEventListener("click", () => {
-            stopAutoPlay();
-            goToNextSlide();
-            startAutoPlay();
-        });
-    }
-
-    heroIndicatorsContainer.addEventListener("click", (event) => {
-        const target = event.target;
-        if (!(target instanceof HTMLButtonElement)) return;
-
-        const slideIndexAttribute = target.getAttribute("data-hero-slide");
-        if (!slideIndexAttribute) return;
-
-        const slideIndex = Number(slideIndexAttribute);
-        if (Number.isNaN(slideIndex)) return;
-
-        stopAutoPlay();
-        showSlide(slideIndex);
-        startAutoPlay();
-    });
-
-    heroSection.addEventListener("mouseenter", stopAutoPlay);
-    heroSection.addEventListener("mouseleave", startAutoPlay);
-}
 
 // --- Realisations filter ---
 const filterButtons = document.querySelectorAll(".filter-button");

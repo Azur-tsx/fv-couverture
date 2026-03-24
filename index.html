@@ -40,43 +40,6 @@
         <!-- Section Hero -->
 
         <section id="hero">
-            <div class="hero-media" aria-label="Photos de chantiers de toiture">
-                <ul id="heroSlider" class="hero-slider">
-                    <li class="hero-slide is-active">
-                        <img src="/src/assets/chantier-1-avant.jpeg" alt="Toiture en cours de rénovation"
-                            class="hero-image" />
-                    </li>
-                    <li class="hero-slide">
-                        <img src="/src/assets/chantier-1-apres.jpeg" alt="Toiture rénovée"
-                            class="hero-image" loading="lazy" />
-                    </li>
-                    <li class="hero-slide">
-                        <img src="/src/assets/chantier-2-avant.jpeg" alt="Toiture avant travaux"
-                            class="hero-image" loading="lazy" />
-                    </li>
-                    <li class="hero-slide">
-                        <img src="/src/assets/chantier-2-apres.jpeg" alt="Toiture après travaux"
-                            class="hero-image" loading="lazy" />
-                    </li>
-                    <li class="hero-slide">
-                        <img src="/src/assets/chantier-3-avant.jpeg" alt="Lucarne avant travaux"
-                            class="hero-image" loading="lazy" />
-                    </li>
-                    <li class="hero-slide">
-                        <img src="/src/assets/chantier-3-apres.jpeg" alt="Lucarne après travaux"
-                            class="hero-image" loading="lazy" />
-                    </li>
-                </ul>
-                <button class="hero-control hero-control-prev" type="button" data-hero-control="prev"
-                    aria-label="Image précédente">
-                    &#10094;
-                </button>
-                <button class="hero-control hero-control-next" type="button" data-hero-control="next"
-                    aria-label="Image suivante">
-                    &#10095;
-                </button>
-                <div class="hero-indicators" aria-label="Navigation entre les images de chantier"></div>
-            </div>
             <article class="hero-infos">
                 <h2>Votre couvreur de confiance à Isbergues</h2>
                 <p>Services de couverture de qualité pour votre maison. Plus de 10 ans d'expérience au service des
@@ -86,6 +49,16 @@
                     <a href="tel:+33768178183" class="call-button"> Appelez-nous</a>
                 </div>
             </article>
+            <div class="hero-media">
+                <img-comparison-slider>
+                    <img slot="first" src="/src/assets/chantier-1-avant.jpeg" alt="Toiture avant rénovation" class="hero-image" />
+                    <img slot="second" src="/src/assets/chantier-1-apres.jpeg" alt="Toiture après rénovation" class="hero-image" loading="lazy" />
+                </img-comparison-slider>
+                <div class="comparison-labels" aria-hidden="true">
+                    <span class="comparison-label">Avant</span>
+                    <span class="comparison-label">Après</span>
+                </div>
+            </div>
         </section>
 
         <!-- Nos Services -->

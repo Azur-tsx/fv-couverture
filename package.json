@@ -12,6 +12,7 @@
     "vite": "^7.2.4"
   },
   "dependencies": {
+    "img-comparison-slider": "^8.0.7",
     "leaflet": "^1.9.4"
   }
 }
