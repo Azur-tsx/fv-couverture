@@ -826,6 +826,17 @@ header {
     margin-bottom: 2rem;
 }
 
+.contact-form__notice {
+    font-size: 0.8rem;
+    color: rgba(49, 65, 88, 0.55) !important;
+    background-color: rgba(49, 65, 88, 0.05);
+    border-left: 3px solid rgba(49, 65, 88, 0.2);
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0 !important;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
+}
+
 #devis-form {
     display: flex;
     flex-direction: column;
@@ -1808,6 +1819,12 @@ header {
 
     .alert p {
         color: rgba(232, 238, 247, 0.7);
+    }
+
+    .contact-form__notice {
+        color: rgba(232, 238, 247, 0.4) !important;
+        background-color: rgba(232, 238, 247, 0.05);
+        border-left-color: rgba(232, 238, 247, 0.15);
     }
 
     .legal p,
