@@ -54,8 +54,8 @@
 
     <section id="realisations-list">
         <article class="realisation couverture">
-            <img src="/src/assets/chantier-1-avant.jpeg" alt="Couverture 1" class="realisations-image" />
-            <img src="/src/assets/chantier-1-apres.jpeg" alt="Couverture 1 après" class="realisations-image-apres" />
+            <img src="/src/assets/chantier-1-avant.jpeg" alt="Couverture 1" class="realisations-image" loading="lazy" />
+            <img src="/src/assets/chantier-1-apres.jpeg" alt="Couverture 1 après" class="realisations-image-apres" loading="lazy" />
             <div class="realisation-text">
                 <p class="realisation-tag">Couverture</p>
                 <h3>Rénovation de toiture en tuiles</h3>
@@ -64,8 +64,8 @@
             </div>
         </article>
         <article class="realisation bardage">
-            <img src="/src/assets/chantier-2-avant.jpeg" alt="Réparation 1" class="realisations-image" />
-            <img src="/src/assets/chantier-2-apres.jpeg" alt="Réparation 1 après" class="realisations-image-apres" />
+            <img src="/src/assets/chantier-2-avant.jpeg" alt="Réparation 1" class="realisations-image" loading="lazy" />
+            <img src="/src/assets/chantier-2-apres.jpeg" alt="Réparation 1 après" class="realisations-image-apres" loading="lazy" />
             <div class="realisation-text">
                 <p class="realisation-tag">Bardage</p>
                 <h3>Reprise de bardage</h3>
@@ -73,8 +73,8 @@
             </div>
         </article>
         <article class="realisation bardage">
-            <img src="/src/assets/chantier-3-avant.jpeg" alt="Charpente 1" class="realisations-image" />
-            <img src="/src/assets/chantier-3-apres.jpeg" alt="Charpente 1 après" class="realisations-image-apres" />
+            <img src="/src/assets/chantier-3-avant.jpeg" alt="Charpente 1" class="realisations-image" loading="lazy" />
+            <img src="/src/assets/chantier-3-apres.jpeg" alt="Charpente 1 après" class="realisations-image-apres" loading="lazy" />
             <div class="realisation-text">
                 <p class="realisation-tag">Bardage</p>
                 <h3>Lucarne avec bardage</h3>
@@ -82,8 +82,8 @@
             </div>
         </article>
         <article class="realisation velux">
-            <img src="/src/assets/chantier-4-avant.jpeg" alt="Velux 1" class="realisations-image" />
-            <img src="/src/assets/chantier-4-apres.jpeg" alt="Velux 1 après" class="realisations-image-apres" />
+            <img src="/src/assets/chantier-4-avant.jpeg" alt="Velux 1" class="realisations-image" loading="lazy" />
+            <img src="/src/assets/chantier-4-apres.jpeg" alt="Velux 1 après" class="realisations-image-apres" loading="lazy" />
             <div class="realisation-text">
                 <p class="realisation-tag">Velux</p>
                 <h3>Installation de Velux</h3>
@@ -172,82 +172,7 @@
         </div>
     </aside>
 
-    <script>
-        const filterButtons = document.querySelectorAll('.filter-button');
-        const realisations = document.querySelectorAll('.realisation');
-        const realisationsList = document.getElementById('realisations-list');
-        let emptyMessage = document.getElementById('empty-message');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter');
-
-                // Mettre à jour le bouton actif
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                // Compteur d'articles visibles
-                let visibleCount = 0;
-
-                // Filtrer les articles
-                realisations.forEach(realisation => {
-                    if (filter === 'all' || realisation.classList.contains(filter)) {
-                        realisation.style.display = 'block';
-                        visibleCount++;
-                    } else {
-                        realisation.style.display = 'none';
-                    }
-                });
-
-                // Afficher/masquer le message vide
-                if (visibleCount === 0) {
-                    if (!emptyMessage) {
-                        emptyMessage = document.createElement('p');
-                        emptyMessage.id = 'empty-message';
-                        emptyMessage.textContent = 'Aucune réalisation pour cette catégorie pour le moment.';
-                        emptyMessage.style.textAlign = 'center';
-                        emptyMessage.style.padding = '2rem';
-                        emptyMessage.style.color = '#666';
-                        realisationsList.appendChild(emptyMessage);
-                    }
-                    emptyMessage.style.display = 'block';
-                } else {
-                    if (emptyMessage) {
-                        emptyMessage.style.display = 'none';
-                    }
-                }
-            });
-        });
-
-        // Gestion du clic sur les cartes de réalisation pour mobile
-        realisations.forEach(realisation => {
-            realisation.addEventListener('click', (e) => {
-                // Éviter le clic sur les boutons de filtre
-                if (e.target.closest('.filter-button')) return;
-
-                // Toggle la classe active
-                realisation.classList.toggle('active');
-            });
-        });
-
-        // Menu burger
-        const menuBurger = document.getElementById('menuBurger');
-        const navigation = document.getElementById('navigation');
-        const navItems = document.querySelectorAll('.nav-item');
-
-        menuBurger.addEventListener('click', () => {
-            menuBurger.classList.toggle('active');
-            navigation.classList.toggle('active');
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                menuBurger.classList.remove('active');
-                navigation.classList.remove('active');
-            });
-        });
-    </script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

@@ -40,32 +40,43 @@
         <!-- Section Hero -->
 
         <section id="hero">
-            <ul id="slider">
-                <li>
-                    <img src="/src/assets/chantier-1-avant.jpeg" alt="Toiture en cours de rénovation"
-                        class="hero-image" />
-                </li>
-                <li>
-                    <img src="/src/assets/chantier-1-apres.jpeg" alt="Toiture en cours de rénovation"
-                        class="hero-image" />
-                </li>
-                <li>
-                    <img src="/src/assets/chantier-2-avant.jpeg" alt="Toiture en cours de rénovation"
-                        class="hero-image" />
-                </li>
-                <li>
-                    <img src="/src/assets/chantier-2-apres.jpeg" alt="Toiture en cours de rénovation"
-                        class="hero-image" />
-                </li>
-                <li>
-                    <img src="/src/assets/chantier-3-avant.jpeg" alt="Toiture en cours de rénovation"
-                        class="hero-image" />
-                </li>
-                <li>
-                    <img src="/src/assets/chantier-3-apres.jpeg" alt="Toiture en cours de rénovation"
-                        class="hero-image" />
-                </li>
-            </ul>
+            <div class="hero-media" aria-label="Photos de chantiers de toiture">
+                <ul id="heroSlider" class="hero-slider">
+                    <li class="hero-slide is-active">
+                        <img src="/src/assets/chantier-1-avant.jpeg" alt="Toiture en cours de rénovation"
+                            class="hero-image" />
+                    </li>
+                    <li class="hero-slide">
+                        <img src="/src/assets/chantier-1-apres.jpeg" alt="Toiture rénovée"
+                            class="hero-image" loading="lazy" />
+                    </li>
+                    <li class="hero-slide">
+                        <img src="/src/assets/chantier-2-avant.jpeg" alt="Toiture avant travaux"
+                            class="hero-image" loading="lazy" />
+                    </li>
+                    <li class="hero-slide">
+                        <img src="/src/assets/chantier-2-apres.jpeg" alt="Toiture après travaux"
+                            class="hero-image" loading="lazy" />
+                    </li>
+                    <li class="hero-slide">
+                        <img src="/src/assets/chantier-3-avant.jpeg" alt="Lucarne avant travaux"
+                            class="hero-image" loading="lazy" />
+                    </li>
+                    <li class="hero-slide">
+                        <img src="/src/assets/chantier-3-apres.jpeg" alt="Lucarne après travaux"
+                            class="hero-image" loading="lazy" />
+                    </li>
+                </ul>
+                <button class="hero-control hero-control-prev" type="button" data-hero-control="prev"
+                    aria-label="Image précédente">
+                    &#10094;
+                </button>
+                <button class="hero-control hero-control-next" type="button" data-hero-control="next"
+                    aria-label="Image suivante">
+                    &#10095;
+                </button>
+                <div class="hero-indicators" aria-label="Navigation entre les images de chantier"></div>
+            </div>
             <article class="hero-infos">
                 <h2>Votre couvreur de confiance à Isbergues</h2>
                 <p>Services de couverture de qualité pour votre maison. Plus de 10 ans d'expérience au service des
@@ -531,26 +542,6 @@
             <span>10 ans sur nos interventions</span>
         </div>
     </aside>
-
-    <script>
-        // Menu burger
-        const menuBurger = document.getElementById('menuBurger');
-        const navigation = document.getElementById('navigation');
-        const navItems = document.querySelectorAll('.nav-item');
-
-        menuBurger.addEventListener('click', () => {
-            menuBurger.classList.toggle('active');
-            navigation.classList.toggle('active');
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                menuBurger.classList.remove('active');
-                navigation.classList.remove('active');
-            });
-        });
-    </script>
 
     <script type="module" src="/src/main.js"></script>
 </body>
