@@ -61,70 +61,19 @@ starContainers.forEach((starContainer) => {
 });
 
 // --- Hero Carousel ---
-const heroSection = document.getElementById("hero");
 const heroSlides = document.querySelectorAll(".hero__slide");
-const heroPrevButton = document.querySelector("[data-hero-control='prev']");
-const heroNextButton = document.querySelector("[data-hero-control='next']");
-const heroIndicatorsContainer = document.querySelector(".hero__indicators");
 
-if (heroSection && heroSlides.length > 0 && heroIndicatorsContainer) {
+if (heroSlides.length > 0) {
     let currentSlideIndex = 0;
-    const autoPlayDelay = 6000;
-    let autoPlayTimer;
-
-    const createIndicators = () => {
-        heroIndicatorsContainer.innerHTML = "";
-        heroSlides.forEach((_, index) => {
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.className = "hero__indicator";
-            indicator.setAttribute("data-hero-slide", String(index));
-            if (index === 0) indicator.classList.add("is-active");
-            heroIndicatorsContainer.appendChild(indicator);
-        });
-    };
-
-    const updateIndicators = (activeIndex) => {
-        heroIndicatorsContainer.querySelectorAll(".hero__indicator").forEach((indicator) => {
-            indicator.classList.toggle(
-                "is-active",
-                Number(indicator.getAttribute("data-hero-slide")) === activeIndex,
-            );
-        });
-    };
 
     const showSlide = (index) => {
         heroSlides.forEach((slide, i) => slide.classList.toggle("is-active", i === index));
-        updateIndicators(index);
         currentSlideIndex = index;
     };
 
-    const goToNext = () => showSlide((currentSlideIndex + 1) % heroSlides.length);
-    const goToPrev = () => showSlide((currentSlideIndex - 1 + heroSlides.length) % heroSlides.length);
-
-    const startAutoPlay = () => {
-        stopAutoPlay();
-        autoPlayTimer = window.setInterval(goToNext, autoPlayDelay);
-    };
-
-    const stopAutoPlay = () => {
-        if (autoPlayTimer) window.clearInterval(autoPlayTimer);
-    };
-
-    createIndicators();
-    startAutoPlay();
-
-    heroPrevButton?.addEventListener("click", () => { stopAutoPlay(); goToPrev(); startAutoPlay(); });
-    heroNextButton?.addEventListener("click", () => { stopAutoPlay(); goToNext(); startAutoPlay(); });
-
-    heroIndicatorsContainer.addEventListener("click", (event) => {
-        if (!(event.target instanceof HTMLButtonElement)) return;
-        const index = Number(event.target.getAttribute("data-hero-slide"));
-        if (!Number.isNaN(index)) { stopAutoPlay(); showSlide(index); startAutoPlay(); }
-    });
-
-    heroSection.addEventListener("mouseenter", stopAutoPlay);
-    heroSection.addEventListener("mouseleave", startAutoPlay);
+    window.setInterval(() => {
+        showSlide((currentSlideIndex + 1) % heroSlides.length);
+    }, 6000);
 }
 
 // --- Realisations filter ---
