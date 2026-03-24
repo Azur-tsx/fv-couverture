@@ -544,9 +544,6 @@ header {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    /* rendre l'élément flou */
-    filter: blur(4px);
-    opacity: .6;
 }
 
 .reviews__item hr {
@@ -828,7 +825,7 @@ header {
 
 .contact-form__notice {
     font-size: 0.8rem;
-    color: rgba(49, 65, 88, 0.55) !important;
+    color: rgba(49, 65, 88, 0.7) !important;
     background-color: rgba(49, 65, 88, 0.05);
     border-left: 3px solid rgba(49, 65, 88, 0.2);
     padding: 0.6rem 0.8rem;
@@ -1004,7 +1001,9 @@ header {
     width: 20rem;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    box-shadow: 0 2px 12px rgba(49, 65, 88, 0.12);
+    border: 1px solid rgba(49, 65, 88, 0.08);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -1827,7 +1826,7 @@ header {
     }
 
     .contact-form__notice {
-        color: rgba(232, 238, 247, 0.4) !important;
+        color: rgba(232, 238, 247, 0.6) !important;
         background-color: rgba(232, 238, 247, 0.05);
         border-left-color: rgba(232, 238, 247, 0.15);
     }

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /d/Projets/fv-couverture log --oneline -5)",
+      "Bash(git -C /d/Projets/fv-couverture branch -a)",
+      "Bash(git -C /d/Projets/fv-couverture show test:index.html)",
+      "Bash(git -C /d/Projets/fv-couverture stash list)",
+      "Bash(git -C /d/Projets/fv-couverture diff test main --name-only)",
+      "Bash(git -C /d/Projets/fv-couverture/.claude/worktrees/agent-ac0c9916 log --oneline -3)",
+      "Bash(git -C /d/Projets/fv-couverture log --oneline test -5)",
+      "Bash(git -C /d/Projets/fv-couverture show test:src/style.css)",
+      "Bash(git -C /d/Projets/fv-couverture show test:src/main.js)",
+      "Bash(git -C /d/Projets/fv-couverture show test:about.html)",
+      "Bash(git -C /d/Projets/fv-couverture show test:alert.html)",
+      "Bash(git -C /d/Projets/fv-couverture show test:vite.config.js)",
+      "Bash(git -C /d/Projets/fv-couverture show test:contact.html)",
+      "Bash(git -C /d/Projets/fv-couverture show test:realisations.html)",
+      "Bash(git -C /d/Projets/fv-couverture status)",
+      "Bash(git -C /d/Projets/fv-couverture add about.html alert.html contact.html index.html package-lock.json package.json realisations.html src/main.js src/style.css vite.config.js public/robots.txt public/sitemap.xml)",
+      "Bash(git -C:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}

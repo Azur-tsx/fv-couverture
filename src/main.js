@@ -24,6 +24,7 @@ if (menuBurger && navigation) {
     menuBurger.addEventListener("click", () => {
         menuBurger.classList.toggle("active");
         navigation.classList.toggle("active");
+        menuBurger.setAttribute("aria-expanded", menuBurger.classList.contains("active") ? "true" : "false");
     });
 
     navItems.forEach((item) => {
@@ -100,8 +101,9 @@ if (filterButtons.length > 0) {
         button.addEventListener("click", () => {
             const filterValue = button.getAttribute("data-filter");
 
-            filterButtons.forEach((fb) => fb.classList.remove("is-active"));
+            filterButtons.forEach((fb) => { fb.classList.remove("is-active"); fb.setAttribute("aria-pressed", "false"); });
             button.classList.add("is-active");
+            button.setAttribute("aria-pressed", "true");
 
             let visibleCount = 0;
 

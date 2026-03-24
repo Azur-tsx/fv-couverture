@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm audit:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(git -C /d/Projets/fv-couverture/.claude/worktrees/agent-ac0c9916 status)",
+      "Bash(git -C /d/Projets/fv-couverture/.claude/worktrees/agent-ac0c9916 log --oneline -5)"
+    ]
+  }
+}
