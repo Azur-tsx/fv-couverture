@@ -1001,9 +1001,8 @@ header {
     width: 20rem;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    box-shadow: 0 2px 12px rgba(49, 65, 88, 0.12);
-    border: 1px solid rgba(49, 65, 88, 0.08);
+    background-color: var(--blue);
+    box-shadow: 0 2px 12px rgba(49, 65, 88, 0.2);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -1040,6 +1039,16 @@ header {
     flex-direction: column;
     gap: .75rem;
     padding: 1rem;
+    color: #fff;
+}
+
+.realisation__body h3 {
+    color: #fff;
+}
+
+.realisation__body p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
 }
 
 .realisation__tag {
@@ -1780,7 +1789,8 @@ header {
     }
 
     .realisation {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        background-color: #1e2a3a;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     }
 
     #about {
