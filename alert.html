@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envoi d'email</title>
-    <link rel="stylesheet" href="src/style.css">
+    <title>Message envoyé – FV Couverture</title>
+    <link rel="icon" href="/public/logo.ico" />
+    <link rel="stylesheet" href="/src/style.css">
 </head>
-
-<body>
-    <article class="alert">
-        <h3>Votre message a été envoyé avec succès !</h3>
-        <p>Nous vous contacterons dans les plus brefs délais.</p>
-        <a href="index.html">Retour à l'accueil</a>
-    </article>
+<body class="alert-page">
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.dataset.theme = saved ?? (prefersDark ? 'dark' : 'light');
+        })();
+    </script>
+    <header class="header">
+        <a href="index.html">
+            <div class="header__logo">
+                <img src="/src/assets/logo.jpeg" alt="Logo FV Couverture" class="logo-image" />
+                <h1>FV Couverture</h1>
+            </div>
+        </a>
+    </header>
+    <main class="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="alert__icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <h2>Message envoyé !</h2>
+        <p>Nous vous recontacterons dans les plus brefs délais.</p>
+        <a href="index.html" class="btn--primary">Retour à l'accueil</a>
+    </main>
 </body>
-
 </html>
