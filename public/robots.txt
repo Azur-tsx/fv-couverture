@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fv-couverture.fr/sitemap.xml
