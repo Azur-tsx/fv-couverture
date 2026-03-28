@@ -529,7 +529,7 @@ header {
 
 .reviews__disclaimer {
     text-align: center;
-    color: rgba(49, 65, 88, 0.6);
+    color: var(--text-muted);
     margin-bottom: 2rem;
 }
 
@@ -576,7 +576,7 @@ header {
 }
 
 .reviews__author-location {
-    color: rgba(49, 65, 88, 0.6);
+    color: var(--text-muted);
     font-size: 0.85rem;
 }
 
@@ -1012,7 +1012,7 @@ header {
     width: 20rem;
     display: flex;
     flex-direction: column;
-    background-color: var(--surface);
+    background-color: var(--blue);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     overflow: hidden;
@@ -1065,7 +1065,7 @@ header {
 .realisation__tag {
     background-color: var(--red);
     width: fit-content;
-    color: #fff;
+    color: #fff !important;
     font-size: 0.75rem;
     font-weight: 500;
     padding: .25rem .75rem;
@@ -1236,7 +1236,7 @@ header {
 .legal__updated {
     margin-top: 3rem;
     font-size: 0.85rem;
-    color: rgba(49, 65, 88, 0.55);
+    color: var(--text-muted);
 }
 
 /* =========================
@@ -1844,7 +1844,7 @@ header {
     }
 
     .realisation {
-        background-color: var(--surface);
+        background-color: #111;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     }
 
@@ -1903,10 +1903,6 @@ header {
 
     .legal a {
         color: rgba(232, 238, 247, 0.9);
-    }
-
-    .legal__updated {
-        color: rgba(232, 238, 247, 0.4);
     }
 
     #map {
