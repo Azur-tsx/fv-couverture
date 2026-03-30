@@ -12,13 +12,6 @@
 </head>
 
 <body>
-    <script>
-        (function() {
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            document.documentElement.dataset.theme = saved ?? (prefersDark ? 'dark' : 'light');
-        })();
-    </script>
     <header class="header">
         <a href="index.html#hero" aria-label="FV Couverture – Retour à l'accueil">
             <div class="header__logo">
@@ -39,16 +32,7 @@
                 <li class="header__nav-item"><a href="about.html">À propos</a></li>
                 <li class="header__nav-item"><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-        <button class="header__theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre/clair">
-            <svg class="theme-icon theme-icon--sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-            </svg>
-            <svg class="theme-icon theme-icon--moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-            </svg>
-        </button>
-        <section class="header__cta">
+        </nav>        <section class="header__cta">
             <a href="contact.html" class="btn--primary">Demander un devis</a>
         </section>
     </header>
@@ -91,10 +75,7 @@
         <h3>6. Destinataires des données</h3>
         <p>Les données sont transmises à Florian Vitse par l'intermédiaire du service Netlify Forms (hébergeur du site). Netlify agit en tant que sous-traitant et traite les données conformément à son propre accord de traitement des données (DPA).</p>
 
-        <h3>7. Stockage local (localStorage)</h3>
-        <p>Ce site utilise le <em>localStorage</em> de votre navigateur pour mémoriser votre préférence de thème (mode clair ou sombre). Cette donnée est stockée localement sur votre appareil et n'est jamais transmise à un serveur.</p>
-
-        <h3>8. Vos droits</h3>
+        <h3>7. Vos droits</h3>
         <p>Conformément au RGPD, vous disposez des droits suivants :</p>
         <ul>
             <li><strong>Droit d'accès</strong> : obtenir une copie de vos données</li>
@@ -106,7 +87,7 @@
         </ul>
         <p>Pour exercer ces droits, contactez-nous à <a href="mailto:fv.couv@gmail.com">fv.couv@gmail.com</a>. Vous disposez également du droit d'introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">CNIL</a>.</p>
 
-        <h3>9. Sécurité</h3>
+        <h3>8. Sécurité</h3>
         <p>Les données transitent via HTTPS (connexion chiffrée). Le site est hébergé sur Netlify qui dispose de mesures de sécurité conformes aux standards du secteur.</p>
 
         <p class="legal__updated">Politique mise à jour le 24 mars 2026.</p>

@@ -2,18 +2,6 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 
-// --- Dark mode toggle ---
-const themeToggle = document.getElementById("themeToggle");
-
-if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-        const current = document.documentElement.dataset.theme;
-        const next = current === "dark" ? "light" : "dark";
-        document.documentElement.dataset.theme = next;
-        localStorage.setItem("theme", next);
-    });
-}
-
 // --- Burger menu ---
 const menuBurger = document.getElementById("menuBurger");
 const navigation = document.getElementById("navigation");

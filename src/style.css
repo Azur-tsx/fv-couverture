@@ -1296,47 +1296,6 @@ header {
     transform: translateY(0);
 }
 
-/* =========================
-   Theme toggle button
-========================= */
-
-.header__theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--blue);
-    border-radius: 0.5rem;
-    transition: background-color 0.2s ease;
-}
-
-.header__theme-toggle:hover {
-    background-color: rgba(49, 65, 88, 0.1);
-}
-
-.theme-icon {
-    width: 1.4rem;
-    height: 1.4rem;
-}
-
-.theme-icon--sun {
-    display: none;
-}
-
-.theme-icon--moon {
-    display: block;
-}
-
-:root[data-theme="dark"] .theme-icon--sun {
-    display: block;
-}
-
-:root[data-theme="dark"] .theme-icon--moon {
-    display: none;
-}
 
 /* =========================
    Retour en haut
@@ -1679,15 +1638,14 @@ header {
    11. MODE SOMBRE
 ========================= */
 
-:root[data-theme="dark"] {
-    --surface: #1e1e1e;
-    --surface-alt: #1a1a1a;
-    --bg: #121212;
-    --text-muted: rgba(232, 238, 247, 0.7);
-    --border: rgba(232, 238, 247, 0.1);
-    --shadow-sm: rgba(0, 0, 0, 0.3);
-
-    * {
+@media (prefers-color-scheme: dark) {
+    :root {
+        --surface: #1e1e1e;
+        --surface-alt: #1a1a1a;
+        --bg: #121212;
+        --text-muted: rgba(232, 238, 247, 0.7);
+        --border: rgba(232, 238, 247, 0.1);
+        --shadow-sm: rgba(0, 0, 0, 0.3);
         --blue: #e8eef7;
         --red: rgb(255, 100, 100);
         --light-red: rgba(255, 100, 100, 0.15);

@@ -8,13 +8,6 @@
     <link rel="stylesheet" href="/src/style.css">
 </head>
 <body class="alert-page">
-    <script>
-        (function() {
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            document.documentElement.dataset.theme = saved ?? (prefersDark ? 'dark' : 'light');
-        })();
-    </script>
     <header class="header">
         <a href="index.html">
             <div class="header__logo">
