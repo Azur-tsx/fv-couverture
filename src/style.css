@@ -580,6 +580,30 @@ header {
     font-size: 0.85rem;
 }
 
+/* Section Actualités */
+
+#actualites {
+    padding: var(--padding-page);
+}
+
+.actualites__title {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.actualites__desc {
+    text-align: center;
+    margin: 0 auto 2rem auto;
+    color: var(--text-muted);
+}
+
+.actualites__widget {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 /* Section CTA */
 
 #cta {
@@ -761,7 +785,7 @@ header {
 
 .badge:hover {
     width: unset;
-    padding: .5rem 1.5rem .5rem 0;
+    padding: .5rem 1.5rem .5rem 1rem;
 }
 
 .badge:hover .badge__content {
@@ -1303,13 +1327,13 @@ header {
 
 .back-to-top {
     position: fixed;
-    bottom: 2rem;
+    bottom: 5.5rem;
     right: 2rem;
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 50%;
-    background-color: var(--blue);
-    color: #fff;
+    background-color: #1a1a1a;
+    color: var(--red);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1698,6 +1722,7 @@ header {
     .services__desc,
     #why-us>p,
     #reviews>p,
+    #actualites>p,
     .zone__info>p,
     #contact-header p,
     .why-us__item p,
