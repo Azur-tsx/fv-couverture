@@ -18,7 +18,10 @@
       "Bash(git -C /d/Projets/fv-couverture status)",
       "Bash(git -C /d/Projets/fv-couverture add about.html alert.html contact.html index.html package-lock.json package.json realisations.html src/main.js src/style.css vite.config.js public/robots.txt public/sitemap.xml)",
       "Bash(git -C:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(where gh:*)",
+      "Bash(winget list:*)",
+      "Bash(grep -rln \"theme\\\\|darkToggle\\\\|dark-mode-toggle\" *.html)"
     ]
   }
 }
