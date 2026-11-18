@@ -1,0 +1,29 @@
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="header">
+        <a href="/" class="header__logo">
+            <picture>
+                <source type="image/webp" srcset="/src/assets/img/logo-96.webp 1x, /src/assets/img/logo-192.webp 2x" />
+                <img src="/src/assets/img/logo-96.png" alt="" width="48" height="48" class="logo-image" />
+            </picture>
+            <span class="header__brand">FV Couverture</span>
+        </a>
+        <button class="header__burger" id="menuBurger" type="button" aria-expanded="false" aria-controls="navigation">
+            <span class="sr-only">Menu</span>
+            <span class="header__burger-bar" aria-hidden="true"></span>
+            <span class="header__burger-bar" aria-hidden="true"></span>
+            <span class="header__burger-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="header__nav" id="navigation" aria-label="Navigation principale">
+            <ul class="header__nav-list">
+                <li class="header__nav-item"><a href="/" data-nav="index">Accueil</a></li>
+                <li class="header__nav-item"><a href="/#services">Services</a></li>
+                <li class="header__nav-item"><a href="/realisations.html" data-nav="realisations">Réalisations</a></li>
+                <li class="header__nav-item"><a href="/about.html" data-nav="about">À propos</a></li>
+                <li class="header__nav-item"><a href="/#actualites">Actualités</a></li>
+                <li class="header__nav-item"><a href="/contact.html" data-nav="contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header__cta">
+            <a href="/contact.html" class="btn--primary">Demander un devis</a>
+        </div>
+    </header>
