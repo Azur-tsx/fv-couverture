@@ -38,8 +38,31 @@ function htmlPartials() {
     };
 }
 
+/**
+ * URLs sans extension (/realisations -> realisations.html) en dev et en preview,
+ * comme Netlify le fait en production.
+ */
+function cleanUrls() {
+    const pageNames = new Set(Object.values(pages).map((file) => file.replace(/\.html$/, "")));
+    const rewrite = (req, _res, next) => {
+        const [path, query = ""] = req.url.split("?");
+        const name = path.replace(/^\//, "").replace(/\/$/, "");
+        if (pageNames.has(name)) req.url = `/${name}.html${query ? `?${query}` : ""}`;
+        next();
+    };
+    return {
+        name: "clean-urls",
+        configureServer(server) {
+            server.middlewares.use(rewrite);
+        },
+        configurePreviewServer(server) {
+            server.middlewares.use(rewrite);
+        },
+    };
+}
+
 export default defineConfig({
-    plugins: [htmlPartials()],
+    plugins: [htmlPartials(), cleanUrls()],
     build: {
         rollupOptions: {
             input: Object.fromEntries(

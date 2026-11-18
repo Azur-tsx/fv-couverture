@@ -7,12 +7,12 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="FV Couverture" />
-    <meta property="og:url" content="https://fv-couverture.fr/contact.html" />
+    <meta property="og:url" content="https://fv-couverture.fr/contact" />
     <meta property="og:title" content="Demander un devis – FV Couverture" />
     <meta property="og:description" content="Contactez FV Couverture pour un devis gratuit. Artisan couvreur à Isbergues, rayon 60 km en Hauts-de-France." />
     <meta property="og:image" content="https://fv-couverture.fr/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://fv-couverture.fr/contact.html" />
+    <link rel="canonical" href="https://fv-couverture.fr/contact" />
     <title>Demander un devis gratuit – FV Couverture</title>
 </head>
 
@@ -30,7 +30,7 @@
                 <h2 id="form-title">Contactez-nous</h2>
                 <p>Parlez-nous de votre projet de couverture et nous vous fournirons un devis gratuit et sans engagement.</p>
                 <p class="contact-form__notice">Ce formulaire est réservé aux demandes de devis. Merci de ne pas l'utiliser pour du démarchage commercial.</p>
-                <form id="devis-form" name="devis-form" method="POST" action="/alert.html" data-netlify="true" netlify-honeypot="bot-field">
+                <form id="devis-form" name="devis-form" method="POST" action="/alert.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
                     <input type="hidden" name="form-name" value="devis-form" />
                     <p class="form__honeypot" aria-hidden="true">
                         <label>Ne pas remplir ce champ <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
@@ -52,7 +52,11 @@
                         placeholder="Type de travaux, surface approximative du toit, délais souhaités…"></textarea>
                     <p class="form__hint" id="project-details-hint">Décrivez votre projet : type de travaux, taille du toit et tout autre détail utile.</p>
 
-                    <p class="form__privacy">Vos données servent uniquement à répondre à votre demande. Voir notre <a href="/confidentialite.html">politique de confidentialité</a>.</p>
+                    <label for="photo">Photo de votre toiture <span class="form__optional">(facultatif)</span></label>
+                    <input type="file" id="photo" name="photo" accept="image/*" aria-describedby="photo-hint" />
+                    <p class="form__hint" id="photo-hint">Une photo aide à préparer le devis. Format image, 8&nbsp;Mo maximum.</p>
+
+                    <p class="form__privacy">Vos données servent uniquement à répondre à votre demande. Voir notre <a href="/confidentialite">politique de confidentialité</a>.</p>
 
                     <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
 

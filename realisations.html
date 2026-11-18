@@ -7,12 +7,12 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="FV Couverture" />
-    <meta property="og:url" content="https://fv-couverture.fr/realisations.html" />
+    <meta property="og:url" content="https://fv-couverture.fr/realisations" />
     <meta property="og:title" content="Nos réalisations – FV Couverture" />
     <meta property="og:description" content="Photos avant/après de chantiers de toiture, bardage, Velux et zinguerie réalisés par FV Couverture en Hauts-de-France." />
     <meta property="og:image" content="https://fv-couverture.fr/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://fv-couverture.fr/realisations.html" />
+    <link rel="canonical" href="https://fv-couverture.fr/realisations" />
     <title>Nos réalisations – FV Couverture</title>
 </head>
 
@@ -22,7 +22,7 @@
     <main id="contenu" tabindex="-1">
         <section id="realisations-hero">
             <h1>Nos Réalisations</h1>
-            <p>Découvrez nos chantiers réalisés avec soin et expertise dans toute la région</p>
+            <p>Avant / après de nos chantiers : faites glisser le curseur sur chaque photo pour comparer.</p>
         </section>
 
         <div id="realisations-filters" role="group" aria-label="Filtrer les réalisations par type de travaux">
@@ -40,7 +40,7 @@
 
         <section id="realisations-list" class="reveal" aria-label="Liste des réalisations">
             <article class="realisation couverture">
-                <div class="realisation__media">
+                <div class="realisation__media compare">
                     <picture>
                         <source type="image/avif" sizes="20rem" srcset="/src/assets/img/chantier-1-avant-800.avif 800w, /src/assets/img/chantier-1-avant-1600.avif 1600w" />
                         <img src="/src/assets/img/chantier-1-avant-800.webp" sizes="20rem" srcset="/src/assets/img/chantier-1-avant-800.webp 800w, /src/assets/img/chantier-1-avant-1600.webp 1600w" width="800" height="1067" alt="Toiture en tuiles avant la rénovation" class="realisation__img img--focus-low" loading="lazy" />
@@ -49,16 +49,19 @@
                         <source type="image/avif" sizes="20rem" srcset="/src/assets/img/chantier-1-apres-800.avif 800w, /src/assets/img/chantier-1-apres-1600.avif 1600w" />
                         <img src="/src/assets/img/chantier-1-apres-800.webp" sizes="20rem" srcset="/src/assets/img/chantier-1-apres-800.webp 800w, /src/assets/img/chantier-1-apres-1600.webp 1600w" width="800" height="1067" alt="Toiture en tuiles après la rénovation" class="realisation__img img--focus-low" loading="lazy" />
                     </picture>
+                    <span class="compare__label compare__label--before" aria-hidden="true">Avant</span>
+                    <span class="compare__label compare__label--after" aria-hidden="true">Après</span>
+                    <span class="compare__handle" aria-hidden="true"></span>
+                    <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Comparer avant et après : Rénovation de toiture en tuiles" />
                 </div>
                 <div class="realisation__body">
                     <p class="realisation__tag">Couverture</p>
                     <h2>Rénovation de toiture en tuiles</h2>
                     <p>Rénovation complète d'une toiture en tuiles avec isolation intégrée (type isolation sarking par l'extérieur).</p>
-                    <button type="button" class="realisation__toggle" aria-pressed="false">Voir l'après</button>
                 </div>
             </article>
             <article class="realisation bardage">
-                <div class="realisation__media">
+                <div class="realisation__media compare">
                     <picture>
                         <source type="image/avif" sizes="20rem" srcset="/src/assets/img/chantier-2-avant-800.avif 800w, /src/assets/img/chantier-2-avant-1600.avif 1600w" />
                         <img src="/src/assets/img/chantier-2-avant-800.webp" sizes="20rem" srcset="/src/assets/img/chantier-2-avant-800.webp 800w, /src/assets/img/chantier-2-avant-1600.webp 1600w" width="800" height="600" alt="Bardage abîmé avant la reprise" class="realisation__img" loading="lazy" />
@@ -67,16 +70,19 @@
                         <source type="image/avif" sizes="20rem" srcset="/src/assets/img/chantier-2-apres-800.avif 800w, /src/assets/img/chantier-2-apres-1600.avif 1600w" />
                         <img src="/src/assets/img/chantier-2-apres-800.webp" sizes="20rem" srcset="/src/assets/img/chantier-2-apres-800.webp 800w, /src/assets/img/chantier-2-apres-1600.webp 1600w" width="800" height="600" alt="Bardage après la reprise de l'ossature et la repose des panneaux" class="realisation__img" loading="lazy" />
                     </picture>
+                    <span class="compare__label compare__label--before" aria-hidden="true">Avant</span>
+                    <span class="compare__label compare__label--after" aria-hidden="true">Après</span>
+                    <span class="compare__handle" aria-hidden="true"></span>
+                    <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Comparer avant et après : Reprise de bardage" />
                 </div>
                 <div class="realisation__body">
                     <p class="realisation__tag">Bardage</p>
                     <h2>Reprise de bardage</h2>
                     <p>Reprise de la charpente du bardage et pose des anciens panneaux trespa</p>
-                    <button type="button" class="realisation__toggle" aria-pressed="false">Voir l'après</button>
                 </div>
             </article>
             <article class="realisation bardage">
-                <div class="realisation__media">
+                <div class="realisation__media compare">
                     <picture>
                         <source type="image/avif" sizes="20rem" srcset="/src/assets/img/chantier-3-avant-800.avif 800w, /src/assets/img/chantier-3-avant-1600.avif 1600w" />
                         <img src="/src/assets/img/chantier-3-avant-800.webp" sizes="20rem" srcset="/src/assets/img/chantier-3-avant-800.webp 800w, /src/assets/img/chantier-3-avant-1600.webp 1600w" width="800" height="1067" alt="Lucarne avant les travaux" class="realisation__img img--focus-low" loading="lazy" />
@@ -85,16 +91,19 @@
                         <source type="image/avif" sizes="20rem" srcset="/src/assets/img/chantier-3-apres-800.avif 800w, /src/assets/img/chantier-3-apres-1600.avif 1600w" />
                         <img src="/src/assets/img/chantier-3-apres-800.webp" sizes="20rem" srcset="/src/assets/img/chantier-3-apres-800.webp 800w, /src/assets/img/chantier-3-apres-1600.webp 1600w" width="800" height="1067" alt="Lucarne terminée avec bardage en joint debout" class="realisation__img img--focus-low" loading="lazy" />
                     </picture>
+                    <span class="compare__label compare__label--before" aria-hidden="true">Avant</span>
+                    <span class="compare__label compare__label--after" aria-hidden="true">Après</span>
+                    <span class="compare__handle" aria-hidden="true"></span>
+                    <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Comparer avant et après : Lucarne avec bardage" />
                 </div>
                 <div class="realisation__body">
                     <p class="realisation__tag">Bardage</p>
                     <h2>Lucarne avec bardage</h2>
                     <p>Lucarne avec bardage en joint debout et toiture terrasse à tasseaux.</p>
-                    <button type="button" class="realisation__toggle" aria-pressed="false">Voir l'après</button>
                 </div>
             </article>
             <article class="realisation velux">
-                <div class="realisation__media">
+                <div class="realisation__media compare">
                     <picture>
                         <source type="image/avif" sizes="20rem" srcset="/src/assets/img/chantier-4-avant-800.avif 800w, /src/assets/img/chantier-4-avant-1600.avif 1600w" />
                         <img src="/src/assets/img/chantier-4-avant-800.webp" sizes="20rem" srcset="/src/assets/img/chantier-4-avant-800.webp 800w, /src/assets/img/chantier-4-avant-1600.webp 1600w" width="800" height="1067" alt="Toiture avant la pose des fenêtres de toit" class="realisation__img" loading="lazy" />
@@ -103,12 +112,15 @@
                         <source type="image/avif" sizes="20rem" srcset="/src/assets/img/chantier-4-apres-800.avif 800w, /src/assets/img/chantier-4-apres-1600.avif 1600w" />
                         <img src="/src/assets/img/chantier-4-apres-800.webp" sizes="20rem" srcset="/src/assets/img/chantier-4-apres-800.webp 800w, /src/assets/img/chantier-4-apres-1600.webp 1600w" width="800" height="1067" alt="Fenêtres de toit Velux installées" class="realisation__img" loading="lazy" />
                     </picture>
+                    <span class="compare__label compare__label--before" aria-hidden="true">Avant</span>
+                    <span class="compare__label compare__label--after" aria-hidden="true">Après</span>
+                    <span class="compare__handle" aria-hidden="true"></span>
+                    <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Comparer avant et après : Installation de Velux" />
                 </div>
                 <div class="realisation__body">
                     <p class="realisation__tag">Velux</p>
                     <h2>Installation de Velux</h2>
                     <p>Installation de Velux pour améliorer l'éclairage naturel</p>
-                    <button type="button" class="realisation__toggle" aria-pressed="false">Voir l'après</button>
                 </div>
             </article>
         </section>

@@ -114,7 +114,12 @@ a {
     --content-max: 72rem;
     --gutter: max(1.5rem, calc((100% - var(--content-max)) / 2));
     --padding-page: 4rem var(--gutter);
-    --radius: .625rem;
+    --radius-sm: 6px;
+    --radius: 12px;
+    --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 12px rgba(16, 24, 40, 0.06);
+    --shadow-raised: 0 12px 32px rgba(16, 24, 40, 0.14);
+    --h2-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.125rem);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -134,6 +139,8 @@ a {
         --border: rgba(232, 238, 247, 0.12);
         --input-border: rgba(232, 238, 247, 0.35);
         --shadow-sm: rgba(0, 0, 0, 0.35);
+        --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+        --shadow-raised: 0 12px 32px rgba(0, 0, 0, 0.5);
 
         --header-bg: rgba(18, 18, 18, 0.95);
         --dark-band: #1a1a1a;
@@ -176,7 +183,7 @@ h2[id] {
     left: 1rem;
     z-index: 1000;
     padding: .75rem 1.25rem;
-    border-radius: 0 0 var(--radius) var(--radius);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
     background-color: var(--btn-bg);
     color: var(--on-btn);
     font-weight: 600;
@@ -220,7 +227,7 @@ main:focus {
     gap: .5rem;
     min-height: 2.75rem;
     padding: .75rem 1.25rem;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     font-weight: 600;
     line-height: 1.2;
     cursor: pointer;
@@ -272,14 +279,20 @@ main:focus {
     display: flex;
     align-items: center;
     gap: .75rem;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
+}
+
+.header__mark {
+    width: 3.75rem;
+    height: auto;
+    color: var(--blue);
 }
 
 .logo-image {
     width: 3rem;
     height: 3rem;
     object-fit: contain;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
 }
 
 .header__brand {
@@ -329,7 +342,7 @@ main:focus {
     gap: .45rem;
     width: 2.75rem;
     height: 2.75rem;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
 }
 
@@ -496,6 +509,48 @@ main:focus {
     display: block;
 }
 
+/* Bande de preuves */
+
+.trust {
+    padding: 1.5rem var(--gutter);
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.trust__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+}
+
+.trust__item {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: .925rem;
+    line-height: 1.3;
+}
+
+.trust__item strong {
+    display: block;
+}
+
+.trust__item span {
+    color: var(--text-muted);
+}
+
+.trust__item strong {
+    color: var(--blue);
+}
+
+.trust__icon {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--red);
+}
+
 /* =========================
    7. Sections communes
 ========================= */
@@ -505,23 +560,26 @@ main:focus {
 #reviews h2,
 .actualites__title,
 .zone__info h2,
-#cta h2 {
-    font-size: 2rem;
-    font-weight: 600;
+#cta h2,
+#process h2 {
+    font-size: var(--h2-size);
+    font-weight: 700;
     line-height: 1.2;
+    letter-spacing: -0.015em;
     margin-bottom: .5rem;
 }
 
 .services__title,
 #why-us h2,
 #reviews h2,
-.actualites__title {
+.actualites__title,
+#process h2 {
     text-align: center;
 }
 
 .services__desc,
 #why-us>p,
-#reviews>p,
+#process>p,
 .actualites__desc {
     text-align: center;
     max-width: 40rem;
@@ -550,13 +608,31 @@ main:focus {
     max-width: 22rem;
     padding: 2rem;
     border-radius: var(--radius);
-    background-color: var(--surface-alt);
+    background-color: var(--surface);
     border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
     transition: box-shadow .3s ease;
 }
 
 .services__card:hover {
-    box-shadow: 0 4px 12px var(--shadow-sm);
+    box-shadow: var(--shadow-raised);
+}
+
+.services__photo {
+    margin: -2rem -2rem 1rem;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.services__photo picture {
+    height: 100%;
+}
+
+.services__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .services__card-header {
@@ -592,7 +668,7 @@ main:focus {
     width: 3.5rem;
     padding: .75rem;
     background-color: var(--light-red);
-    border-radius: 10px;
+    border-radius: var(--radius);
     color: var(--red);
 }
 
@@ -666,6 +742,53 @@ main:focus {
     color: var(--text-muted);
 }
 
+/* Déroulé d'un projet */
+
+#process {
+    padding: var(--padding-page);
+}
+
+.process__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1.5rem;
+    counter-reset: step;
+}
+
+.process__step {
+    position: relative;
+    padding: 1.5rem 1.25rem 1.25rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+    counter-increment: step;
+}
+
+.process__step::before {
+    content: counter(step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-bottom: .75rem;
+    border-radius: 50%;
+    background-color: var(--btn-bg);
+    color: var(--on-btn);
+    font-weight: 700;
+}
+
+.process__step h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: .25rem;
+}
+
+.process__step p {
+    color: var(--text-muted);
+    font-size: .95rem;
+}
+
 /* Zone d'intervention */
 
 #zone {
@@ -728,7 +851,7 @@ main:focus {
     width: 100%;
     max-width: 100%;
     border: 0;
-    border-radius: 24px;
+    border-radius: var(--radius);
     overflow: hidden;
     background: transparent;
 }
@@ -739,14 +862,40 @@ main:focus {
     padding: var(--padding-page);
 }
 
-#reviews>p {
-    margin-bottom: 1rem;
+#reviews {
+    background-color: var(--tint);
 }
 
-.reviews__disclaimer {
-    text-align: center;
+.reviews__summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem 1rem;
+    margin-bottom: 2.5rem;
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.reviews__summary strong {
+    color: var(--blue);
+}
+
+.reviews__more {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+}
+
+.reviews__more a {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: .25em;
+}
+
+.reviews__more a:hover {
+    color: var(--red);
 }
 
 .reviews__list {
@@ -764,13 +913,13 @@ main:focus {
     border-radius: var(--radius);
     background-color: var(--surface);
     border: 1px solid var(--border);
-    box-shadow: 0 4px 6px var(--shadow-sm);
+    box-shadow: var(--shadow-card);
 }
 
-.reviews__item hr {
-    border: none;
-    border-top: 1px solid var(--border);
+.reviews__item-footer {
     margin-top: auto;
+    padding-top: .75rem;
+    border-top: 1px solid var(--border);
 }
 
 .stars {
@@ -786,8 +935,7 @@ main:focus {
 
 .reviews__item-text {
     font-size: .95rem;
-    line-height: 1.5;
-    font-style: italic;
+    line-height: 1.55;
 }
 
 .reviews__author-name {
@@ -937,7 +1085,7 @@ main:focus {
 }
 
 .footer__credit {
-    padding: 0 var(--gutter) 1.5rem;
+    padding: 0 var(--gutter) .5rem;
     text-align: center;
     color: rgba(255, 255, 255, 0.75);
     font-size: .85rem;
@@ -952,62 +1100,21 @@ main:focus {
     color: #fff;
 }
 
+.footer__made {
+    padding: 0 var(--gutter) 1.5rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: .75rem;
+}
+
 /* =========================
    9. Éléments flottants
 ========================= */
 
-.badge {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 40;
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    max-width: 3.5rem;
-    height: 3.5rem;
-    padding: 0 0 0 calc(1rem - 1px);
-    overflow: hidden;
-    white-space: nowrap;
-    border-radius: 999px;
-    background-color: var(--surface);
-    color: var(--blue);
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 10px var(--shadow-sm);
-    transition: max-width .3s ease;
-}
-
-.badge:hover,
-.badge:focus-visible {
-    max-width: 20rem;
-}
-
-.badge__icon {
-    flex-shrink: 0;
-    height: 1.5rem;
-    width: 1.5rem;
-    color: var(--red);
-}
-
-.badge__content {
-    display: flex;
-    flex-direction: column;
-    padding-right: 1.25rem;
-    font-size: .875rem;
-    line-height: 1.25;
-    opacity: 0;
-    transition: opacity .2s ease;
-}
-
-.badge:hover .badge__content,
-.badge:focus-visible .badge__content {
-    opacity: 1;
-}
-
 .back-to-top {
     position: fixed;
-    bottom: 5.5rem;
-    right: 1.6rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
     z-index: 40;
     display: flex;
     align-items: center;
@@ -1020,7 +1127,7 @@ main:focus {
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    box-shadow: 0 4px 12px var(--shadow-sm);
+    box-shadow: var(--shadow-raised);
     transition: opacity .3s ease, visibility 0s linear .3s, transform .2s ease;
 }
 
@@ -1082,9 +1189,9 @@ main:focus {
     gap: 1rem;
     padding: 2rem;
     background-color: var(--surface);
-    border-radius: 10px;
+    border-radius: var(--radius);
     border: 1px solid var(--border);
-    box-shadow: 0 4px 6px var(--shadow-sm);
+    box-shadow: var(--shadow-card);
 }
 
 .contact-form h2,
@@ -1128,7 +1235,7 @@ main:focus {
     margin-bottom: 1rem;
     padding: .75rem;
     border: 1px solid var(--input-border);
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     background-color: var(--surface);
     transition: border-color .2s ease;
 }
@@ -1142,6 +1249,18 @@ main:focus {
 #devis-form textarea::placeholder {
     color: var(--text-muted);
     opacity: .8;
+}
+
+#devis-form input[type="file"] {
+    margin-bottom: .25rem;
+    padding: .6rem;
+    border-style: dashed;
+    cursor: pointer;
+}
+
+.form__optional {
+    color: var(--text-muted);
+    font-weight: 400;
 }
 
 #devis-form textarea {
@@ -1197,7 +1316,7 @@ main:focus {
     min-height: 3rem;
     margin-top: .5rem;
     padding: .75rem 1.5rem;
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     background-color: var(--btn-bg);
     color: var(--on-btn);
     font-weight: 600;
@@ -1222,10 +1341,10 @@ main:focus {
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: var(--radius);
     background-color: var(--dark-band);
     color: #fff;
-    box-shadow: 0 4px 6px var(--shadow-sm);
+    box-shadow: var(--shadow-card);
 }
 
 .contact-sidebar p,
@@ -1314,7 +1433,7 @@ main:focus {
 .filter__btn {
     min-height: 2.75rem;
     padding: .5rem 1.25rem;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     border: 1px solid var(--border);
     background-color: var(--surface-alt);
     color: var(--blue);
@@ -1335,9 +1454,8 @@ main:focus {
 }
 
 #realisations-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
     gap: 2rem;
     padding: var(--padding-page);
 }
@@ -1345,8 +1463,7 @@ main:focus {
 .realisation {
     display: flex;
     flex-direction: column;
-    width: 20rem;
-    border-radius: 10px;
+    border-radius: var(--radius);
     overflow: hidden;
     background-color: #1a1a1a;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
@@ -1355,12 +1472,14 @@ main:focus {
 
 .realisation__media {
     position: relative;
-    height: 15rem;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    --pos: 50%;
 }
 
 .realisation__media picture {
-    height: 100%;
+    position: absolute;
+    inset: 0;
 }
 
 .realisation__media img {
@@ -1369,21 +1488,76 @@ main:focus {
     object-fit: cover;
 }
 
+/* L'image « après » occupe la partie droite du curseur */
 .realisation__after {
+    clip-path: inset(0 0 0 var(--pos));
+}
+
+.compare__handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--pos);
+    width: 3px;
+    margin-left: -1.5px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.compare__handle::after {
+    content: "‹ ›";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #1a1a1a;
+    font-weight: 700;
+    letter-spacing: .1em;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.compare__label {
+    position: absolute;
+    top: .75rem;
+    padding: .2rem .6rem;
+    border-radius: var(--radius-pill);
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.compare__label--before {
+    left: .75rem;
+}
+
+.compare__label--after {
+    right: .75rem;
+}
+
+.compare__range {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     opacity: 0;
-    transition: opacity .3s ease;
+    cursor: ew-resize;
+    touch-action: pan-y;
 }
 
-.realisation.is-after .realisation__after {
-    opacity: 1;
-}
-
-@media (hover: hover) {
-    .realisation:hover .realisation__after {
-        opacity: 1;
-    }
+.compare:has(.compare__range:focus-visible) {
+    outline: 3px solid var(--focus);
+    outline-offset: -3px;
 }
 
 .realisation__body {
@@ -1408,34 +1582,11 @@ main:focus {
 .realisation__body .realisation__tag {
     width: fit-content;
     padding: .25rem .75rem;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background-color: #990000;
     color: #fff;
     font-size: .75rem;
     font-weight: 600;
-}
-
-.realisation__toggle {
-    align-self: flex-start;
-    min-height: 2.5rem;
-    margin-top: auto;
-    padding: .4rem 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 999px;
-    color: #fff;
-    font-size: .875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color .2s ease;
-}
-
-.realisation__toggle:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-}
-
-.realisation__toggle[aria-pressed="true"] {
-    background-color: #fff;
-    color: #1a1a1a;
 }
 
 /* À propos */
@@ -1456,10 +1607,10 @@ main:focus {
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: var(--radius);
     background-color: var(--surface);
     border: 1px solid var(--border);
-    box-shadow: 0 4px 6px var(--shadow-sm);
+    box-shadow: var(--shadow-card);
 }
 
 .about__profile {
@@ -1472,7 +1623,20 @@ main:focus {
     width: 15rem;
     height: 15rem;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: var(--radius);
+}
+
+.about__img--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    background-color: var(--dark-band);
+}
+
+.about__mark {
+    width: 100%;
+    color: #fff;
 }
 
 .about__bio h2 {
@@ -1517,7 +1681,7 @@ main:focus {
     width: fit-content;
     max-width: 100%;
     padding: 1.25rem;
-    border-radius: 10px;
+    border-radius: var(--radius);
     background-color: var(--surface-alt);
 }
 
@@ -1759,7 +1923,13 @@ main:focus {
 
     /* Hero */
     #hero {
-        height: 28rem;
+        height: auto;
+        min-height: 30rem;
+        display: flex;
+    }
+
+    .hero__content h1 {
+        font-size: 1.85rem;
     }
 
     #hero::before {
@@ -1771,8 +1941,9 @@ main:focus {
     .hero__content {
         width: 100%;
         min-width: unset;
+        height: auto;
         justify-content: flex-end;
-        padding: 1.5rem var(--gutter) 4.5rem;
+        padding: 9rem var(--gutter) 4.5rem;
         gap: .75rem;
     }
 
@@ -1860,9 +2031,13 @@ main:focus {
         gap: .5rem;
     }
 
-    .realisation {
-        width: 100%;
-        max-width: 24rem;
+    .services__photo {
+        margin: -1.5rem -1.5rem 1rem;
+    }
+
+    .trust__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
     /* À propos */
@@ -1880,14 +2055,9 @@ main:focus {
     }
 
     /* Éléments flottants */
-    .badge {
+    .back-to-top {
         right: 1rem;
         bottom: 1.25rem;
-    }
-
-    .back-to-top {
-        right: 1.4rem;
-        bottom: 5.5rem;
     }
 
     .sticky-call {
@@ -1900,7 +2070,7 @@ main:focus {
         gap: .5rem;
         min-height: 3rem;
         padding: .75rem 2rem;
-        border-radius: 999px;
+        border-radius: var(--radius-pill);
         background-color: var(--btn-bg);
         color: var(--on-btn);
         font-weight: 600;

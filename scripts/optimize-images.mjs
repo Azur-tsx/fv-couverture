@@ -1,6 +1,6 @@
 // Génère les images optimisées du site à partir des originaux de images-src/.
 // Usage : npm run images  (à relancer après l'ajout ou le remplacement d'une photo)
-import { mkdir, readdir } from "node:fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join, parse } from "node:path";
 import sharp from "sharp";
 
@@ -17,15 +17,7 @@ for (const file of files) {
     const { name } = parse(file);
     const input = join(SRC, file);
 
-    if (name === "logo") {
-        for (const size of [96, 192]) {
-            const logo = sharp(input).rotate().resize(size, size, { fit: "cover" });
-            await logo.clone().webp({ quality: 85 }).toFile(join(OUT, `logo-${size}.webp`));
-            await logo.clone().png({ compressionLevel: 9 }).toFile(join(OUT, `logo-${size}.png`));
-        }
-        await sharp(input).rotate().resize(180, 180).png().toFile(join(PUBLIC, "apple-touch-icon.png"));
-        continue;
-    }
+    if (name === "logo") continue; // logo d'origine (avec texte) : remplacé par src/assets/brand/logo-mark.svg
 
     for (const width of PHOTO_WIDTHS) {
         const img = sharp(input).rotate().resize({ width, withoutEnlargement: true });
@@ -40,5 +32,16 @@ await sharp(join(SRC, "chantier-1-apres.jpeg"))
     .resize(1200, 630, { fit: "cover" })
     .jpeg({ quality: 78, mozjpeg: true })
     .toFile(join(PUBLIC, "og-image.jpg"));
+
+// Favicons à partir du logo vectoriel (pictogramme blanc sur fond bleu)
+const mark = (await readFile("src/assets/brand/logo-mark.svg", "utf-8"))
+    .replace(/currentColor/g, "#fff")
+    .replace(/<svg ([^>]*)viewBox="0 0 100 50"/, '<svg $1viewBox="-12 -33 124 124"');
+const icon = mark.replace(/(<svg[^>]*>)/, '$1<rect x="-12" y="-33" width="124" height="124" rx="26" fill="#314158" stroke="none"/>');
+await writeFile(join(PUBLIC, "favicon.svg"), icon);
+await sharp(Buffer.from(icon)).resize(48, 48).png().toFile(join(PUBLIC, "favicon-48.png"));
+// iOS arrondit lui-même les coins : fond plein, sans rayon
+const touch = mark.replace(/(<svg[^>]*>)/, '$1<rect x="-12" y="-33" width="124" height="124" fill="#314158" stroke="none"/>');
+await sharp(Buffer.from(touch)).resize(180, 180).png().toFile(join(PUBLIC, "apple-touch-icon.png"));
 
 console.log(`Images générées dans ${OUT} et ${PUBLIC}/`);

@@ -169,14 +169,19 @@ if (filterButtons.length > 0) {
     });
 }
 
-// --- Avant / après des réalisations ---
-document.querySelectorAll(".realisation__toggle").forEach((toggle) => {
-    const card = toggle.closest(".realisation");
-    toggle.addEventListener("click", () => {
-        const showAfter = toggle.getAttribute("aria-pressed") !== "true";
-        toggle.setAttribute("aria-pressed", String(showAfter));
-        card.classList.toggle("is-after", showAfter);
-    });
+// --- Comparateur avant / après (curseur) ---
+document.querySelectorAll(".compare").forEach((compare) => {
+    const range = compare.querySelector(".compare__range");
+    if (!range) return;
+
+    const update = () => {
+        const value = Number(range.value);
+        compare.style.setProperty("--pos", `${value}%`);
+        range.setAttribute("aria-valuetext", `${value} % avant, ${100 - value} % après`);
+    };
+
+    range.addEventListener("input", update);
+    update();
 });
 
 // --- Formulaire de devis : anti-spam (délai minimal) + retour visuel ---
@@ -188,6 +193,17 @@ if (devisForm) {
     const submitBtn = devisForm.querySelector(".btn--submit");
     const submitLabel = submitBtn?.querySelector(".btn__label");
     const formStatus = document.getElementById("form-status");
+
+    const MAX_PHOTO_BYTES = 8 * 1024 * 1024; // limite Netlify Forms
+    const photoInput = document.getElementById("photo");
+
+    photoInput?.addEventListener("change", () => {
+        const file = photoInput.files?.[0];
+        const tooBig = file && file.size > MAX_PHOTO_BYTES;
+        photoInput.setCustomValidity(tooBig ? "La photo dépasse 8 Mo. Choisissez une image plus légère." : "");
+        photoInput.setAttribute("aria-invalid", String(Boolean(tooBig)));
+        if (tooBig) photoInput.reportValidity();
+    });
 
     devisForm.addEventListener("submit", (event) => {
         if (Date.now() - loadedAt < MIN_FILL_TIME) {
