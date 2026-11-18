@@ -13,7 +13,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const ISBERGUES = [50.6241667, 2.4575];
-const RADIUS_METERS = 50000;
+const RADIUS_METERS = 60000;
 
 export function initMap(element) {
     const map = L.map(element, { scrollWheelZoom: false }).setView(ISBERGUES, 10);
