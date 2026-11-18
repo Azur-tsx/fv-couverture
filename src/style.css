@@ -1126,6 +1126,16 @@ main:focus {
     font-size: .75rem;
 }
 
+.footer__made a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: underline;
+    text-underline-offset: .2em;
+}
+
+.footer__made a:hover {
+    color: #fff;
+}
+
 /* =========================
    9. Éléments flottants
 ========================= */
