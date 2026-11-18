@@ -1,0 +1,9 @@
+{
+    "extends": ["html-validate:recommended"],
+    "rules": {
+        "void-style": "off",
+        "no-trailing-whitespace": "off",
+        "long-title": "off",
+        "tel-non-breaking": ["error", { "characters": [{ "pattern": " ", "replacement": "&nbsp;", "description": "non-breaking space" }], "ignoreClasses": ["sticky-call", "btn--outline"] }]
+    }
+}

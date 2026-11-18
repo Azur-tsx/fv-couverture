@@ -8,6 +8,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
     Strict-Transport-Security = "max-age=31536000"
+    # CSP : le hash autorise l'unique script inline (partials/head.html, ajout de la classe "js").
+    # Si ce script change, recalculer le hash (voir scripts/check-site.mjs, qui le vérifie).
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; connect-src 'self'; frame-src https://app.inrcy.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests"
 
 # Fichiers versionnés par Vite (nom avec hash) : cache long
 [[headers]]

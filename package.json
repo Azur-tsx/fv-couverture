@@ -7,9 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "images": "node scripts/optimize-images.mjs"
+    "images": "node scripts/optimize-images.mjs",
+    "check": "html-validate \"dist/**/*.html\" && node scripts/check-site.mjs",
+    "audit": "lighthouse http://localhost:4173 --view"
   },
   "devDependencies": {
+    "html-validate": "^9.7.1",
+    "lighthouse": "^12.8.2",
     "sharp": "^0.34.5",
     "vite": "^7.2.4"
   },

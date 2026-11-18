@@ -10,6 +10,7 @@ const pages = {
     alert: "alert.html",
     mentionsLegales: "mentions-legales.html",
     confidentialite: "confidentialite.html",
+    notFound: "404.html",
 };
 
 /**
@@ -61,8 +62,33 @@ function cleanUrls() {
     };
 }
 
+/**
+ * En build, remplace la feuille de style principale par un <style> intégré :
+ * supprime une requête bloquante pour le premier affichage (~6 Ko gzip par page).
+ */
+function inlineCss() {
+    return {
+        name: "inline-css",
+        apply: "build",
+        transformIndexHtml: {
+            order: "post",
+            handler(html, ctx) {
+                if (!ctx.bundle) return html;
+                return html.replace(
+                    /<link rel="stylesheet"[^>]*href="\/(assets\/[^"]+\.css)"[^>]*>/g,
+                    (tag, fileName) => {
+                        const asset = ctx.bundle[fileName];
+                        if (!asset || asset.type !== "asset") return tag;
+                        return `<style>${asset.source}</style>`;
+                    }
+                );
+            },
+        },
+    };
+}
+
 export default defineConfig({
-    plugins: [htmlPartials(), cleanUrls()],
+    plugins: [htmlPartials(), cleanUrls(), inlineCss()],
     build: {
         rollupOptions: {
             input: Object.fromEntries(

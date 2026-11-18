@@ -7,7 +7,14 @@ import sharp from "sharp";
 const SRC = "images-src";
 const OUT = "src/assets/img";
 const PUBLIC = "public";
-const PHOTO_WIDTHS = [800, 1600];
+const PHOTO_WIDTHS = [480, 800, 1200, 1600];
+
+// Vignettes des cartes (services, réalisations) : recadrées en 4:3 pour ne pas
+// télécharger les pixels masqués par object-fit. Les photos à sujet bas sont
+// recadrées à 70 % de la hauteur au lieu du centre.
+const CARD_WIDTHS = [480, 800];
+const CARD_RATIO = 3 / 4;
+const CARD_FOCUS_Y = { "chantier-1": 0.7, "chantier-3": 0.7 };
 
 await mkdir(OUT, { recursive: true });
 
@@ -23,6 +30,24 @@ for (const file of files) {
         const img = sharp(input).rotate().resize({ width, withoutEnlargement: true });
         await img.clone().avif({ quality: 55 }).toFile(join(OUT, `${name}-${width}.avif`));
         await img.clone().webp({ quality: 72 }).toFile(join(OUT, `${name}-${width}.webp`));
+    }
+
+    // Recadrage 4:3 pour les cartes
+    const rotated = await sharp(input).rotate().toBuffer({ resolveWithObject: true });
+    const { width: w, height: h } = rotated.info;
+    const cropH = Math.min(h, Math.round(w * CARD_RATIO));
+    const cropW = cropH === h ? Math.round(h / CARD_RATIO) : w;
+    const focusY = CARD_FOCUS_Y[name.replace(/-(avant|apres)$/, "")] ?? 0.5;
+    const area = {
+        left: Math.round((w - cropW) / 2),
+        top: Math.round((h - cropH) * focusY),
+        width: cropW,
+        height: cropH,
+    };
+    for (const width of CARD_WIDTHS) {
+        const card = sharp(rotated.data).extract(area).resize({ width });
+        await card.clone().avif({ quality: 55 }).toFile(join(OUT, `${name}-card-${width}.avif`));
+        await card.clone().webp({ quality: 72 }).toFile(join(OUT, `${name}-card-${width}.webp`));
     }
 }
 
